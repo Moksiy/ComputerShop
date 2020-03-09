@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AuthorizationPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AuthorizationPage : Page
     {
-        public MainWindow()
+        public AuthorizationPage()
         {
             InitializeComponent();
-            FrameWindow.Navigate(new AuthorizationPage());
         }
     }
 }

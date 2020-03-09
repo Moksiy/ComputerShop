@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerShop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" MinHeight="700" MinWidth="1000" Height="700" Width="1000" MaxHeight="1080" MaxWidth="1920">
+    <Frame x:Name="FrameWindow" NavigationUIVisibility="Hidden" Height="auto" Width="auto">
         
-    </Grid>
+    </Frame>
 </Window>
