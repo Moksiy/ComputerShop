@@ -24,5 +24,15 @@ namespace ComputerShop
         {
             InitializeComponent();
         }
+
+        private void RefreshCaptcha_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
