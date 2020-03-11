@@ -11,7 +11,7 @@
     <Grid>
         <TextBox  x:Name="LoginBox" HorizontalAlignment="Center" Height="28" Margin="0,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" Height="28" Margin="0,290,0,0"  VerticalAlignment="Top" Width="300" FontSize="18"/>
-        <Label Content="XXXX" HorizontalAlignment="Center" Margin="250,370,446,0" VerticalAlignment="Top" Width="104" Height="40" FontSize="25" HorizontalContentAlignment="Center" FontFamily="MV Boli">
+        <Label x:Name="Captcha" Content="XXXX" HorizontalAlignment="Center" Margin="250,370,446,0" VerticalAlignment="Top" Width="104" Height="40" FontSize="25" HorizontalContentAlignment="Center" FontFamily="MV Boli">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF595959" Offset="0"/>
