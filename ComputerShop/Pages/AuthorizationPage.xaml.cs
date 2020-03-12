@@ -49,7 +49,7 @@ namespace ComputerShop
             //Возвращаем исходный контур
             LoginBox.BorderBrush = Brushes.SlateGray;
             PasswordBox.BorderBrush = Brushes.SlateGray;
-            CaptchaText.BorderBrush = Brushes.SlateGray;
+            CaptchaText.BorderBrush = Brushes.SlateGray;            
 
             //Проверяем на заполненность логин и пароль
             if(!String.IsNullOrEmpty(LoginBox.Text) && !String.IsNullOrEmpty(PasswordBox.Password))
@@ -80,6 +80,9 @@ namespace ComputerShop
         /// </summary>
         private async void CheckUser()
         {
+            //Убираем вывод ошибки
+            Error.Content = "";
+
             SqlConnection connection = new SqlConnection();
 
             try
@@ -141,6 +144,12 @@ namespace ComputerShop
                             //this.NavigationService.Navigate(new AdminPage());
                             break;
                     }
+                }
+                else
+                {
+                    LoginBox.BorderBrush = Brushes.Red;
+                    PasswordBox.BorderBrush = Brushes.Red;                    
+                    Error.Content = "Неправильная комбинация логин-пароль";
                 }
             }
             catch (SqlException ex)
