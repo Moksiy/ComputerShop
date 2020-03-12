@@ -8,8 +8,9 @@ namespace ComputerShop
 {
     public static class User
     {
-        public static string Login { get; set; }
-        public static string Password { get; set; }
-        public static string RoleID { get; set; }
+        public static string Login { get; set; } = "";
+        public static string Password { get; set; } = "";
+        public static string RoleID { get; set; } = "";
+        public static string ID { get; set; } = "";
     }
 }

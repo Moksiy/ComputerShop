@@ -92,21 +92,61 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM [Users] WHERE Login = '" + LoginBox.Text + "' AND Password = '" + PasswordBox.Password + "'";
+                command.CommandText = "SELECT dbo.Users.Login, dbo.Users.Password, dbo.Employee.PositionID, dbo.Employee.ID FROM dbo.Employee INNER JOIN dbo.Users ON dbo.Employee.ID = dbo.Users.EmployeeID WHERE Users.Login = '" + LoginBox.Text+"' AND Users.Password = '"+PasswordBox.Password+"'";
 
                 command.Connection = connection;
 
                 SqlDataReader dataReader = command.ExecuteReader();
 
-                //Добавляем в список
                 while (dataReader.Read())
                 {
-                    
+                    User.Login = dataReader[0].ToString();
+                    User.Password = dataReader[1].ToString();
+                    User.RoleID = dataReader[2].ToString();
+                    User.ID = dataReader[3].ToString();
+                }
+
+                //Если пользователь существует
+                if(!String.IsNullOrEmpty(User.Login) && !String.IsNullOrEmpty(User.Password))
+                {
+                    switch(User.RoleID)
+                    {
+                        //Админ
+                        case "0":
+                            //this.NavigationService(new ());
+                            break;
+
+                        //Генеральный директор
+                        case "1":
+                            //this.NavigationService(new ());
+                            break;
+
+                        //Директор
+                        case "2":
+                            //this.NavigationService(new ());
+                            break;
+
+                        //Логист
+                        case "3":
+                            //this.NavigationService(new ());
+                            break;
+
+                        //Рабочий ремонтной площадки
+                        case "4":
+                            //this.NavigationService(new ());
+                            break;
+
+                        //Продавец-консультант
+                        case "5":
+                            //this.NavigationService(new ());
+                            break;
+                    }
                 }
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
+                SynchronizationErrors.New(ex.ToString());
             }
             finally
             {
