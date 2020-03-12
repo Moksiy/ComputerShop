@@ -113,32 +113,32 @@ namespace ComputerShop
                     {
                         //Админ
                         case "0":
-                            //this.NavigationService(new ());
+                            this.NavigationService.Navigate(new AdminPage());
                             break;
 
                         //Генеральный директор
                         case "1":
-                            //this.NavigationService(new ());
+                            //this.NavigationService.Navigate(new AdminPage());
                             break;
 
                         //Директор
                         case "2":
-                            //this.NavigationService(new ());
+                            //this.NavigationService.Navigate(new AdminPage());
                             break;
 
                         //Логист
                         case "3":
-                            //this.NavigationService(new ());
+                            //this.NavigationService.Navigate(new AdminPage());
                             break;
 
                         //Рабочий ремонтной площадки
                         case "4":
-                            //this.NavigationService(new ());
+                            //this.NavigationService.Navigate(new AdminPage());
                             break;
 
                         //Продавец-консультант
                         case "5":
-                            //this.NavigationService(new ());
+                            //this.NavigationService.Navigate(new AdminPage());
                             break;
                     }
                 }

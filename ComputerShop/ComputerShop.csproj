@@ -55,11 +55,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\LogisticianPage.xaml.cs">
+      <DependentUpon>LogisticianPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DirectorPage.xaml.cs">
+      <DependentUpon>DirectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GeneralDirectorPage.xaml.cs">
+      <DependentUpon>GeneralDirectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultantPage.xaml.cs">
+      <DependentUpon>ConsultantPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Authorization\CaptchaBuild.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Pages\RepairmanPage.xaml.cs">
+      <DependentUpon>RepairmanPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Pages\LogisticianPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DirectorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GeneralDirectorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ConsultantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +116,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\RepairmanPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
