@@ -24,5 +24,56 @@ namespace ComputerShop
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Просмотр товаров
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Products_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Просмотр складов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Warehouses_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Просмотр поставщиков
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Suppliers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Просмотр поставок
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Shipments_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Выход из учетной записи
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Account.LogOut();
+            this.NavigationService.Navigate(new AuthorizationPage());
+        }
     }
 }

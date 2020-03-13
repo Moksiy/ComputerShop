@@ -105,5 +105,15 @@ namespace ComputerShop
         {
 
         }
+
+        /// <summary>
+        /// Посмотреть товары
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Products_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

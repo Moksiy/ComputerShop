@@ -129,17 +129,17 @@ namespace ComputerShop
 
                         //Директор
                         case "2":
-                            //this.NavigationService.Navigate(new AdminPage());
+                            this.NavigationService.Navigate(new DirectorPage());
                             break;
 
                         //Логист
                         case "3":
-                            //this.NavigationService.Navigate(new AdminPage());
+                            this.NavigationService.Navigate(new LogisticianPage());
                             break;
 
                         //Рабочий ремонтной площадки
                         case "4":
-                            //this.NavigationService.Navigate(new AdminPage());
+                            this.NavigationService.Navigate(new RepairmanPage());
                             break;
 
                         //Продавец-консультант
