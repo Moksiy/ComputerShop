@@ -9,10 +9,14 @@
       Title="AdminPage">
 
     <Grid Background="#FFE7E7E7">
-        <ListView HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="900" Height="600" MinWidth="900" MinHeight="600" MaxWidth="1820" MaxHeight="980">
+        <ListView x:Name="ErList" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="900" Height="600" MinWidth="900" MinHeight="600" MaxWidth="1820" MaxHeight="980">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Path=ErrorID}">ID</GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Path=EmployeeID}">ID сотрудника</GridViewColumn>
+                    <GridViewColumn Width="550" DisplayMemberBinding="{Binding Path=ErrorText}">Ошибка</GridViewColumn>
+                    <GridViewColumn Width="194" DisplayMemberBinding="{Binding Path=ErrorDate}">Дата ошибки</GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>

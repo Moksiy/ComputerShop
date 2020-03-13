@@ -5,10 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ComputerShop"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="1000"
       Title="GeneralDirectorPage">
 
-    <Grid>
-        
+    <Grid Background="#FFE7E7E7">
+        <Button x:Name="Logout" Content="logout" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="92" Height="24" FontSize="15" Click="Logout_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Employees" Content="Сотрудники" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="223" Height="52" FontSize="25" Click="Employees_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Shops" Content="Магазины" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Width="224" Height="52" FontSize="25" Click="Shops_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Suppliers" Content="Поставщики" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Width="224" Height="52" FontSize="25" Click="Suppliers_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Shipments" Content="Поставки" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Width="224" Height="52" FontSize="25" Click="Shipments_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Buys" Content="Покупки" HorizontalAlignment="Center" Margin="0,420,0,0" VerticalAlignment="Top" Width="224" Height="52" FontSize="25" Click="Buys_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Orders" Content="Заказы" HorizontalAlignment="Center" Margin="0,500,0,0" VerticalAlignment="Top" Width="224" Height="52" FontSize="25" Click="Orders_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Clients" Content="Клиенты" HorizontalAlignment="Center" Margin="0,580,0,0" VerticalAlignment="Top" Width="224" Height="52" FontSize="25" Click="Clients_Click" FontFamily="Yu Gothic UI Semibold"/>
+
     </Grid>
 </Page>

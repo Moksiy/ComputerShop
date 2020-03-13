@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Authorization\Account.cs" />
     <Compile Include="Pages\LogisticianPage.xaml.cs">
       <DependentUpon>LogisticianPage.xaml</DependentUpon>
     </Compile>

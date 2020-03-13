@@ -124,7 +124,7 @@ namespace ComputerShop
 
                         //Генеральный директор
                         case "1":
-                            //this.NavigationService.Navigate(new AdminPage());
+                            this.NavigationService.Navigate(new GeneralDirectorPage());
                             break;
 
                         //Директор

@@ -24,5 +24,86 @@ namespace ComputerShop
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Выход из учетной записи
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Account.LogOut();
+            this.NavigationService.Navigate(new AuthorizationPage());
+        }
+
+        /// <summary>
+        /// Посмотреть штат сотрудников
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Employees_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Посмотреть магазины
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Shops_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Посмотреть поставщиков
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Suppliers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Посмотреть поставки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Shipments_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Посмотреть покупки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Buys_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Посмотреть заказы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Посмотреть клиентов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Clients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
