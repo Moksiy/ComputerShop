@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace ComputerShop
 {
@@ -70,6 +71,8 @@ namespace ComputerShop
                 LoginBox.BorderBrush = Brushes.Red;
                 PasswordBox.BorderBrush = Brushes.Red;
             }
+
+            Thread.Sleep(300);
 
             //Рефрешим капчу
             Captcha.Content = CaptchaBuild.Refresh();
