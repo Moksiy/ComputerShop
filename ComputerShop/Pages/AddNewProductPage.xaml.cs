@@ -42,7 +42,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM Typess";
+                command.CommandText = "SELECT * FROM Types";
 
                 command.Connection = connection;
 
