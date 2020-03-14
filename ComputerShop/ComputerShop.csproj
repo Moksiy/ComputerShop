@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Characteristics\CharacteristicElement.cs" />
+    <Compile Include="Characteristics\Characteristics.cs" />
     <Compile Include="Pages\AddNewProductPage.xaml.cs">
       <DependentUpon>AddNewProductPage.xaml</DependentUpon>
     </Compile>

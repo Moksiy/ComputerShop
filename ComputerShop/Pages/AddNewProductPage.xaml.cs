@@ -77,6 +77,11 @@ namespace ComputerShop
         public static byte[] imageData { get; set; }
 
         /// <summary>
+        /// Индекс для контекстного меню
+        /// </summary>
+        public static int Index { get; set; }
+
+        /// <summary>
         /// Переход на предыдущую страницу
         /// </summary>
         /// <param name="sender"></param>
@@ -119,7 +124,29 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void AddCharact_Click(object sender, RoutedEventArgs e)
         {
+            //ресетаем цвета текстбоксов
+            CName.BorderBrush = Brushes.SlateGray;
+            CText.BorderBrush = Brushes.SlateGray;
 
+            if(!String.IsNullOrEmpty(CName.Text) && !String.IsNullOrEmpty(CText.Text))
+            {
+                Characteristics.Add(CName.Text, CText.Text);
+                ListViewItem item = new ListViewItem();
+                item.Content = CName.Text + " : " + CText.Text;
+                item.Tag = Characteristics.Count();
+                Characts.Items.Add(item);
+
+                //Ресетаем контент
+                CName.Text = "";
+                CText.Text = "";
+            }
+            else
+            {
+                if (String.IsNullOrEmpty(CName.Text))
+                    CName.BorderBrush = Brushes.Red;
+                if (String.IsNullOrEmpty(CText.Text))
+                    CText.BorderBrush = Brushes.Red;
+            }
         }
 
         private void ResetColors()
@@ -234,6 +261,38 @@ namespace ComputerShop
                 connection.Close();
             }
 
+            //Добавляем характеристики товара в бд
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                connection.Open();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                foreach(var item in Characteristics.Get())
+                {
+                    command.CommandText += "INSERT INTO Characteristics VALUES ("+id+",'"+item.Name+"','"+item.Text+"') ";
+                }
+
+                command.Connection = connection;
+
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+
             AddImage(id.ToString());
         }
 
@@ -286,6 +345,29 @@ namespace ComputerShop
             }
 
             this.NavigationService.GoBack();
+        }
+
+        /// <summary>
+        /// Удалить из списка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if(Index != 0)
+            {
+                Characts.Items.RemoveAt(Index-1);
+                Characteristics.Remove(Index - 1);
+            }
+        }
+
+        private void ListViewItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem item = sender as ListViewItem;
+            object obj = item.Tag;
+            ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
+            cm.IsOpen = true;
+            Index = Convert.ToInt32(obj);
         }
     }
 }
