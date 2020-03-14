@@ -25,9 +25,15 @@ namespace ComputerShop
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Выход из учетной записи
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-
+            Account.LogOut();
+            this.NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }

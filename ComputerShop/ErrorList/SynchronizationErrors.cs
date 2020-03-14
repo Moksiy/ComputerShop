@@ -18,6 +18,7 @@ namespace ComputerShop
         public static void New(string error)
         {
             Add(User.ID, error, DateTime.Now);
+            AddToDB(User.ID, error, DateTime.Now);
         }
 
         /// <summary>

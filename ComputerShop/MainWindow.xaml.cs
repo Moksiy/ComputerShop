@@ -20,6 +20,9 @@ namespace ComputerShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Строка подключения
+        /// </summary>
         public static string ConnectionSrting { get; } = @"Data Source=DESKTOP-O3K2SO6\SQLEXPRESS;Initial Catalog=BuildYourOwnPC;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public MainWindow()

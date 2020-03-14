@@ -55,7 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\AddNewProductPage.xaml.cs">
+      <DependentUpon>AddNewProductPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Authorization\Account.cs" />
+    <Compile Include="Images\ImageElement.cs" />
     <Compile Include="Pages\LogisticianPage.xaml.cs">
       <DependentUpon>LogisticianPage.xaml</DependentUpon>
     </Compile>
@@ -76,6 +80,10 @@
     <Compile Include="Pages\RepairmanPage.xaml.cs">
       <DependentUpon>RepairmanPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\AddNewProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LogisticianPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,7 +157,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="Images\defImage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
