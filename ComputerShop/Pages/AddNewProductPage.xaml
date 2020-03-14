@@ -14,7 +14,7 @@
         <TextBox  x:Name="Manufacturer" HorizontalAlignment="Center" Height="28" Margin="350,180,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Название " HorizontalAlignment="Center" Margin="0,66,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Label Content="Производитель " HorizontalAlignment="Center" Margin="0,145,150,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Artikul" HorizontalAlignment="Center" Height="28" Margin="0,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox  x:Name="Artikul" HorizontalAlignment="Center" Height="28" Margin="0,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10"/>
         <Label Content="Артикул " HorizontalAlignment="Center" Margin="0,226,212,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Label Content="Категория " HorizontalAlignment="Center" Margin="0,308,195,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <ComboBox x:Name="Categories" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Width="298" Height="30">
@@ -36,6 +36,8 @@
         <Label Content="Характеристика " HorizontalAlignment="Center" Margin="210,420,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Label Content=": " HorizontalAlignment="Center" Margin="0,445,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Button x:Name="AddCharact" Content="+" HorizontalAlignment="Center" Margin="520,450,0,0" VerticalAlignment="Top" Width="50" Height="29" FontSize="15" Click="AddCharact_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Label x:Name="Error" Content="" HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="Red"/>
+        <Label x:Name="ErrorImage" Content="" HorizontalAlignment="Center" Margin="0,491,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="Red"/>
 
 
     </Grid>

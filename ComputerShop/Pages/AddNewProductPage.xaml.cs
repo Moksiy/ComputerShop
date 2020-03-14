@@ -128,6 +128,8 @@ namespace ComputerShop
             Manufacturer.BorderBrush = Brushes.SlateGray;
             Artikul.BorderBrush = Brushes.SlateGray;
             Categories.BorderBrush = Brushes.SlateGray;
+            Error.Content = "";
+            ErrorImage.Content = "";
         }
 
         /// <summary>
@@ -137,12 +139,15 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
+            ResetColors();
+
             if(!String.IsNullOrEmpty(Name.Text) &&
                 !String.IsNullOrEmpty(Manufacturer.Text) &&
                 !String.IsNullOrEmpty(Artikul.Text) &&
-                !String.IsNullOrEmpty(Categories.SelectedItem.ToString()))
+                Categories.SelectedItem != null &&
+                !String.IsNullOrEmpty(FilePath))
             {
-
+                Addproduct();
             }
             else
             {
@@ -152,18 +157,90 @@ namespace ComputerShop
                     Manufacturer.BorderBrush = Brushes.Red;
                 if (String.IsNullOrEmpty(Artikul.Text))
                     Artikul.BorderBrush = Brushes.Red;
-                if (String.IsNullOrEmpty(Categories.SelectedItem.ToString()))
-                    Categories.BorderBrush = Brushes.Red;
+                if (Categories.SelectedItem == null)
+                    Error.Content = "Выберите категорию";
+                if (String.IsNullOrEmpty(FilePath))
+                    ErrorImage.Content = "Добавьте изображение товара";
+            }
+        }
+
+        private void Addproduct()
+        {
+            //Сначала получаем id
+            SqlConnection connection = new SqlConnection();
+
+            int id = 0;
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                connection.Open();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT ISNULL(MAX(Products.ID),0) FROM Products";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while(dataReader.Read())
+                {
+                    id = Convert.ToInt32(dataReader[0]);
+                    id++;
+                }
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
             }
 
+            //Добавляем товар в бд
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
 
-            AddImage();
+                //Открываем подключение
+                connection.Open();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "INSERT INTO Products VALUES("+id+",'"+Name.Text+"','"+Artikul.Text+"','"+Manufacturer.Text+"',"+Categories.SelectedIndex+")";
+
+                command.Connection = connection;
+
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+
+            AddImage(id.ToString());
         }
 
         /// <summary>
         /// Добавление изображения в БД
         /// </summary>
-        private async void AddImage()
+        private async void AddImage(string id)
         {            
             SqlConnection connection = new SqlConnection();
 
@@ -177,7 +254,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = @"INSERT INTO Images VALUES ((SELECT ISNULL(MAX(Images.ID),0) FROM Images)+1, @FileName, @Title, @ImageData)";
+                command.CommandText = @"INSERT INTO Images VALUES ("+id+", @FileName, @Title, @ImageData)";
 
                 command.Connection = connection;
 
@@ -188,12 +265,10 @@ namespace ComputerShop
                 command.Parameters.Add("@ImageData", System.Data.SqlDbType.Image, 1000000);
 
                 string shortFileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1);
-
-                string title = ""; //- выбранная категория
                 
                 // передаем данные в команду через параметры
                 command.Parameters["@FileName"].Value = shortFileName;
-                command.Parameters["@Title"].Value = title;
+                command.Parameters["@Title"].Value = Categories.Text.ToString();
                 command.Parameters["@ImageData"].Value = imageData;
 
                 command.ExecuteNonQuery();
@@ -209,6 +284,8 @@ namespace ComputerShop
                 //В любом случае закрываем подключение
                 connection.Close();
             }
+
+            this.NavigationService.GoBack();
         }
     }
 }
