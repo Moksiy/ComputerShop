@@ -113,7 +113,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Products_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new ProductsPage());
         }
     }
 }
