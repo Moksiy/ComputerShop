@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="Characteristics\CharacteristicElement.cs" />
     <Compile Include="Characteristics\Characteristics.cs" />
+    <Compile Include="Pages\MoreinfoProductPage.xaml.cs">
+      <DependentUpon>MoreinfoProductPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddNewProductPage.xaml.cs">
       <DependentUpon>AddNewProductPage.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
     <Compile Include="Pages\RepairmanPage.xaml.cs">
       <DependentUpon>RepairmanPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\MoreinfoProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddNewProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +147,7 @@
     <Compile Include="Pages\ProductsPage.xaml.cs">
       <DependentUpon>ProductsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Products\CurrentProduct.cs" />
     <Compile Include="Products\ProductElement.cs" />
     <Compile Include="Products\ProductsList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

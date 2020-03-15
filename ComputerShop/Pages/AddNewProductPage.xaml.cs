@@ -152,7 +152,7 @@ namespace ComputerShop
         private void ResetColors()
         {
             Name.BorderBrush = Brushes.SlateGray;
-            Manufacturer.BorderBrush = Brushes.SlateGray;
+            Manufacture.BorderBrush = Brushes.SlateGray;
             Artikul.BorderBrush = Brushes.SlateGray;
             Categories.BorderBrush = Brushes.SlateGray;
             Error.Content = "";
@@ -170,7 +170,7 @@ namespace ComputerShop
             ResetColors();
 
             if (!String.IsNullOrEmpty(Name.Text) &&
-                !String.IsNullOrEmpty(Manufacturer.Text) &&
+                !String.IsNullOrEmpty(Manufacture.Text) &&
                 !String.IsNullOrEmpty(Artikul.Text) &&
                 Categories.SelectedItem != null &&
                 !String.IsNullOrEmpty(FilePath) &&
@@ -182,8 +182,8 @@ namespace ComputerShop
             {
                 if (String.IsNullOrEmpty(Name.Text))
                     Name.BorderBrush = Brushes.Red;
-                if (String.IsNullOrEmpty(Manufacturer.Text))
-                    Manufacturer.BorderBrush = Brushes.Red;
+                if (String.IsNullOrEmpty(Manufacture.Text))
+                    Manufacture.BorderBrush = Brushes.Red;
                 if (String.IsNullOrEmpty(Artikul.Text))
                     Artikul.BorderBrush = Brushes.Red;
                 if (Categories.SelectedItem == null)
@@ -247,7 +247,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "INSERT INTO Products VALUES(" + id + ",'" + Name.Text + "','" + Artikul.Text + "','" + Manufacturer.Text + "'," + Categories.SelectedIndex + "," + CostBox.Text + ")";
+                command.CommandText = "INSERT INTO Products VALUES(" + id + ",'" + Name.Text + "','" + Artikul.Text + "','" + Manufacture.Text + "'," + Categories.SelectedIndex + "," + CostBox.Text + ")";
 
                 command.Connection = connection;
 

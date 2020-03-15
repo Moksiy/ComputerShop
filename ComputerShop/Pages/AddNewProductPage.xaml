@@ -11,7 +11,7 @@
     <Grid Background="#FFE7E7E7">
         <Button x:Name="Back" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Logout_Click" FontFamily="Yu Gothic UI Semibold"/>
         <TextBox  x:Name="Name" HorizontalAlignment="Center" Height="28" Margin="0,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <TextBox  x:Name="Manufacturer" HorizontalAlignment="Center" Height="28" Margin="350,180,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox  x:Name="Manufacture" HorizontalAlignment="Center" Height="28" Margin="350,180,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Название " HorizontalAlignment="Center" Margin="0,66,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Label Content="Производитель " HorizontalAlignment="Center" Margin="0,145,150,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <TextBox  x:Name="Artikul" HorizontalAlignment="Center" Height="28" Margin="0,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10"/>

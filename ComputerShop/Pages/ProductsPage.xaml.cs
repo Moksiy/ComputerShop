@@ -88,5 +88,41 @@ namespace ComputerShop
                 connection.Close();
             }
         }
+
+        /// <summary>
+        /// Подробнее
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if(!String.IsNullOrEmpty(CurrentProduct.ID.ToString()))
+                this.NavigationService.Navigate(new MoreinfoProductPage());
+        }
+
+        /// <summary>
+        /// Удалить
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            //if(CurrentProduct.ID != null)
+
+        }
+
+        /// <summary>
+        /// Нажатие правой кнопкой мыши по элементу listview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListViewItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem item = sender as ListViewItem;
+            object obj = item.Tag;
+            ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
+            cm.IsOpen = true;
+            CurrentProduct.ID = Convert.ToInt32(obj);
+        }
     }
 }

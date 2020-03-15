@@ -10,7 +10,7 @@
 
     <Grid Background="#FFE7E7E7">
         <Button x:Name="Back" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <Button x:Name="AddProduct" Content="Добавить товар" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Width="200" Height="40" FontSize="25" Click="AddProduct_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="AddProduct" Content="Добавить товар" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="140" Height="25" FontSize="15" Click="AddProduct_Click" FontFamily="Yu Gothic UI Semibold"/>
         <ListView x:Name="ProductList" FontSize="14" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="950" MaxWidth="1900" Margin="20,40,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
             <ListView.View>
                 <GridView>
@@ -29,6 +29,20 @@
                     <GridViewColumn Header="Цена" Width="140" DisplayMemberBinding="{Binding Cost}"/>
                 </GridView>
             </ListView.View>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseRightButtonDown" Handler="ListViewItem_PreviewMouseRightButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="CONTEXT">
+                    <MenuItem Header="Подробнее" Click="MenuItem_Click"></MenuItem>
+                    <MenuItem Header="Удалить" Click="MenuItem_Click_1"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+
         </ListView>
     </Grid>
 </Page>
