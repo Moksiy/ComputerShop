@@ -61,7 +61,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT Products.ID, Images.ImageData, Products.ProductName, Products.Manufacturer, Products.Artikul FROM     dbo.Images INNER JOIN dbo.Products ON dbo.Images.ID = dbo.Products.ID";
+                command.CommandText = "SELECT Products.ID, Images.ImageData, Products.ProductName, Products.Manufacturer, Products.Artikul, Products.Cost FROM     dbo.Images INNER JOIN dbo.Products ON dbo.Images.ID = dbo.Products.ID";
 
                 command.Connection = connection;
 
@@ -73,7 +73,7 @@ namespace ComputerShop
                     item.Tag = dataReader[0];
                     item.Content = (new ProductElement(Convert.ToInt32(dataReader[0]),
                         (byte[])(dataReader[1]), dataReader[2].ToString(),
-                        dataReader[3].ToString(), dataReader[4].ToString()));
+                        dataReader[3].ToString(), dataReader[4].ToString(), Convert.ToInt32(dataReader[5])));
                     ProductList.Items.Add(item);
                 }
             }

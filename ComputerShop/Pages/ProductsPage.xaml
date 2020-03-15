@@ -23,12 +23,12 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Название" Width="490" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Название" Width="350" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Производитель" Width="150" DisplayMemberBinding="{Binding Manufact}"/>
                     <GridViewColumn Header="Артикул" Width="150" DisplayMemberBinding="{Binding Articul}"/>
+                    <GridViewColumn Header="Цена" Width="140" DisplayMemberBinding="{Binding Cost}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </Page>

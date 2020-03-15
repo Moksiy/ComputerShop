@@ -13,14 +13,16 @@ namespace ComputerShop
         public string Name { get; set; }
         public string Manufact { get; set; }
         public string Articul { get; set; }
+        public int Cost { get; set; }
 
-        public ProductElement(int id, byte[] photo, string name, string manufact, string articul)
+        public ProductElement(int id, byte[] photo, string name, string manufact, string articul, int cost)
         {
             this.ProductID = id;
             this.PhotoData = photo;
             this.Name = name;
             this.Manufact = manufact;
             this.Articul = articul;
+            this.Cost = cost;
         }
     }
 }

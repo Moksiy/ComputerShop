@@ -35,7 +35,18 @@ namespace ComputerShop
         /// <returns></returns>
         public static List<CharacteristicElement> Get()
         {
-            return characteristics;
+            if(characteristics.Count >= 1)
+                return characteristics;
+            return null;
+        }
+
+        /// <summary>
+        /// Получаем количество записей в списке
+        /// </summary>
+        /// <returns></returns>
+        public static int GetCount()
+        {
+            return characteristics.Count();
         }
 
         /// <summary>
