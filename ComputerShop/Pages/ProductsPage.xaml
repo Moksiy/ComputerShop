@@ -11,7 +11,7 @@
     <Grid Background="#FFE7E7E7">
         <Button x:Name="Back" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Button x:Name="AddProduct" Content="Добавить товар" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="140" Height="25" FontSize="15" Click="AddProduct_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <ListView x:Name="ProductList" FontSize="14" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="950" MaxWidth="1900" Margin="20,40,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
+        <ListView x:Name="ProductList" FontSize="14" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="950" MaxWidth="1900" Margin="20,40,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Фото" Width="100">

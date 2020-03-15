@@ -23,7 +23,7 @@
         <Image x:Name="ProductImage" Stretch="Fill" HorizontalAlignment="Center" Height="150" Margin="0,150,670,0" VerticalAlignment="Top" Width="180"/>
         <Button x:Name="AddPhoto" Content="+" HorizontalAlignment="Center" Margin="0,318,665,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="AddPhoto_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Button x:Name="AddProduct" Content="Добавить" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="150" Height="33" FontSize="20" Click="AddProduct_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <ListView x:Name="Characts" HorizontalAlignment="Center" Height="270" Margin="675,100,25,0" VerticalAlignment="Top" Width="300">
+        <ListView x:Name="Characts" Foreground="Black" Background="#FFE7E7E7" HorizontalAlignment="Center" Height="270" Margin="675,100,25,0" VerticalAlignment="Top" Width="300">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="300">Характеристики</GridViewColumn>

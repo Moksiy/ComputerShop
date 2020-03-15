@@ -19,7 +19,7 @@
         <TextBlock x:Name="Manufact" HorizontalAlignment="Center" Margin="533,125,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
         <TextBlock x:Name="Artukul" HorizontalAlignment="Center" Margin="533,165,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
         <TextBlock x:Name="Price" HorizontalAlignment="Center" Margin="533,205,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
-        <ListView x:Name="Charactes" HorizontalAlignment="Center" Height="353" Margin="0,299,0,0" FontSize="18" VerticalAlignment="Top" Width="846">
+        <ListView x:Name="Charactes" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Center" Height="353" Margin="0,299,0,0" FontSize="18" VerticalAlignment="Top" Width="846">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="" Width="250" DisplayMemberBinding="{Binding Name}"/>

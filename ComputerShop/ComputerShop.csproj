@@ -55,8 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\EmployeeMoreInfoPage.xaml.cs">
+      <DependentUpon>EmployeeMoreInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddNewEmployeePage.xaml.cs">
+      <DependentUpon>AddNewEmployeePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Characteristics\CharacteristicElement.cs" />
     <Compile Include="Characteristics\Characteristics.cs" />
+    <Compile Include="Pages\EmployeesPage.xaml.cs">
+      <DependentUpon>EmployeesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MoreinfoProductPage.xaml.cs">
       <DependentUpon>MoreinfoProductPage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +94,18 @@
     <Compile Include="Pages\RepairmanPage.xaml.cs">
       <DependentUpon>RepairmanPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\EmployeeMoreInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddNewEmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EmployeesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MoreinfoProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
