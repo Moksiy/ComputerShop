@@ -10,20 +10,20 @@
 
     <Grid Background="#FFE7E7E7">
         <Button x:Name="Back" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <Button x:Name="AddProduct" Content="Добавить товар" HorizontalAlignment="Center" Margin="0,610,0,0" VerticalAlignment="Top" Width="200" Height="40" FontSize="25" Click="AddProduct_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <ListView x:Name="ProductList" FontSize="17" HorizontalAlignment="Center" Height="550" Margin="0,40,0,0" VerticalAlignment="Top" Width="900">
+        <Button x:Name="AddProduct" Content="Добавить товар" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Width="200" Height="40" FontSize="25" Click="AddProduct_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <ListView x:Name="ProductList" FontSize="14" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="950" MaxWidth="1900" Margin="20,40,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="" Width="100">
+                    <GridViewColumn Header="Фото" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <Image Width="70" Source="{Binding PhotoData}"/>
+                                    <Image Width="70" Source="{Binding PhotoData}" MinWidth="60" MaxWidth="100"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Название" Width="350" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Название" Width="400" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Производитель" Width="150" DisplayMemberBinding="{Binding Manufact}"/>
                     <GridViewColumn Header="Артикул" Width="150" DisplayMemberBinding="{Binding Articul}"/>
                     <GridViewColumn Header="Цена" Width="140" DisplayMemberBinding="{Binding Cost}"/>
