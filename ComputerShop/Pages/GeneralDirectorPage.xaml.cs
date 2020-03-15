@@ -43,7 +43,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Employees_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new EmployeesPage());
         }
 
         /// <summary>
