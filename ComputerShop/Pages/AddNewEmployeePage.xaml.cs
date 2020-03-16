@@ -56,6 +56,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
+            ResetBorders();
             if (!String.IsNullOrEmpty(FirstName.Text) &&
                !String.IsNullOrEmpty(LastName.Text) &&
                !String.IsNullOrEmpty(Patronom.Text) &&

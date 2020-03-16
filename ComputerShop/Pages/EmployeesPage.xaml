@@ -13,7 +13,7 @@
         <ListView x:Name="EmployeeList" FontSize="14" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="950" MaxWidth="1900" Margin="20,40,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Фото" Width="100">
+                    <GridViewColumn Header="Фото" Width="75">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -25,7 +25,7 @@
                     <GridViewColumn Header="Фамилия" Width="150" DisplayMemberBinding="{Binding LastName}"/>
                     <GridViewColumn Header="Имя" Width="150" DisplayMemberBinding="{Binding FirstName}"/>
                     <GridViewColumn Header="Отчество" Width="150" DisplayMemberBinding="{Binding Patronymic}"/>
-                    <GridViewColumn Header="Магазин" Width="257" DisplayMemberBinding="{Binding Position}"/>
+                    <GridViewColumn Header="Магазин" Width="283" DisplayMemberBinding="{Binding Position}"/>
                     <GridViewColumn Header="Должность" Width="140" DisplayMemberBinding="{Binding Position}"/>
                 </GridView>
             </ListView.View>
