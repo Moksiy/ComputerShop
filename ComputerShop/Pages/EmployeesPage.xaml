@@ -17,7 +17,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <Image Width="70" Source="{Binding PhotoData}" MinWidth="60" MaxWidth="100"/>
+                                    <Image Width="70" Height="70" Source="{Binding PhotoData}" MinWidth="60" MaxWidth="100"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -25,8 +25,8 @@
                     <GridViewColumn Header="Фамилия" Width="150" DisplayMemberBinding="{Binding LastName}"/>
                     <GridViewColumn Header="Имя" Width="150" DisplayMemberBinding="{Binding FirstName}"/>
                     <GridViewColumn Header="Отчество" Width="150" DisplayMemberBinding="{Binding Patronymic}"/>
-                    <GridViewColumn Header="Магазин" Width="283" DisplayMemberBinding="{Binding Position}"/>
-                    <GridViewColumn Header="Должность" Width="140" DisplayMemberBinding="{Binding Position}"/>
+                    <GridViewColumn Header="Магазин" Width="200" DisplayMemberBinding="{Binding Shop}"/>
+                    <GridViewColumn Header="Должность" Width="220" DisplayMemberBinding="{Binding Position}"/>
                 </GridView>
             </ListView.View>
 

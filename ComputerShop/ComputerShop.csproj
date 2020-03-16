@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Employee\EmployeeElement.cs" />
     <Compile Include="Pages\EmployeeMoreInfoPage.xaml.cs">
       <DependentUpon>EmployeeMoreInfoPage.xaml</DependentUpon>
     </Compile>
