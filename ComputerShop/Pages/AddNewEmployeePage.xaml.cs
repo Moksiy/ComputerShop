@@ -119,7 +119,7 @@ namespace ComputerShop
                 //Запрос
                 command.CommandText = @"INSERT INTO Employee VALUES ((SELECT ISNULL(MAX(Employee.ID),0) FROM Employee) + 1,'"
                 +LastName.Text+"','"+FirstName.Text+"','"+Patronom.Text+"','"+Shop.SelectedIndex+"','"+Position.SelectedIndex+
-                "')";
+                "',0)";
 
                 command.Connection = connection;
 

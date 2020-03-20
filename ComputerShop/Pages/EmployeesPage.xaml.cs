@@ -101,6 +101,8 @@ namespace ComputerShop
                     dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(),
                     dataReader[4].ToString(), dataReader[5].ToString());
                     item.Tag = dataReader[6].ToString();
+                    if (Convert.ToInt32(dataReader[7]) == 1)
+                        item.Background = Brushes.Gray;
                     EmployeeList.Items.Add(item);
                 }
             }
