@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\AddNewSupplierPage.xaml.cs">
+      <DependentUpon>AddNewSupplierPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddNewShopPage.xaml.cs">
+      <DependentUpon>AddNewShopPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employee\EmployeeElement.cs" />
     <Compile Include="Pages\EmployeeMoreInfoPage.xaml.cs">
       <DependentUpon>EmployeeMoreInfoPage.xaml</DependentUpon>
@@ -95,6 +101,22 @@
     <Compile Include="Pages\RepairmanPage.xaml.cs">
       <DependentUpon>RepairmanPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ShopsPage.xaml.cs">
+      <DependentUpon>ShopsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SuppliersPage.xaml.cs">
+      <DependentUpon>SuppliersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shops\ShopElement.cs" />
+    <Compile Include="Suppliers\SupplierElement.cs" />
+    <Page Include="Pages\AddNewSupplierPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddNewShopPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EmployeeMoreInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +183,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShopsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SuppliersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
