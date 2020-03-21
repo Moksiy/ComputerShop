@@ -9,7 +9,7 @@
       Title="AddNewShopPage">
 
     <Grid Background="#FFE7E7E7">
-        <Button x:Name="Back" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
 
     </Grid>
 </Page>

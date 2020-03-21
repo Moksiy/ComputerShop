@@ -20,7 +20,7 @@
             </Label.Background>
         </Label>
         <TextBox x:Name="CaptchaText" HorizontalAlignment="Center" Height="40" Margin="446,370,250,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104" FontSize="25" HorizontalContentAlignment="Center" MaxLength="4"/>
-        <Button x:Name="RefreshCaptcha" Content="?!" HorizontalAlignment="Center" Margin="487,380,483,0" VerticalAlignment="Top" Width="30" Click="RefreshCaptcha_Click"/>
+        <Button x:Name="RefreshCaptcha" VerticalContentAlignment="Center" Content="🔄" HorizontalAlignment="Center" Margin="487,380,483,0" VerticalAlignment="Top" Width="30" Click="RefreshCaptcha_Click" Height="26" FontSize="17"/>
         <Button x:Name="Login" Content="login" HorizontalAlignment="Center" Margin="453,449,455,0" VerticalAlignment="Top" Width="92" Height="24" FontSize="15" Click="Login_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Label Content="Логин" HorizontalAlignment="Center" Margin="350,186,588,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Label Content="Пароль" HorizontalAlignment="Center" Margin="350,256,576,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>

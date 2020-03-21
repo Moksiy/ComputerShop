@@ -9,7 +9,7 @@
       Title="MoreinfoProductPage">
 
     <Grid Background="#FFE7E7E7">
-        <Button x:Name="Back" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Image x:Name="ProductImage" HorizontalAlignment="Center" Height="190" Margin="0,80,650,0" VerticalAlignment="Top" Width="220" Source="{Binding UserImage}"/>
         <Label Content="Название " HorizontalAlignment="Center" Margin="0,80,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <TextBlock x:Name="ProductName" HorizontalAlignment="Center" Margin="533,85,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
