@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace ComputerShop
 {
@@ -23,6 +24,7 @@ namespace ComputerShop
         public ShopsPage()
         {
             InitializeComponent();
+            GetShops();
         }
 
         /// <summary>
@@ -77,6 +79,52 @@ namespace ComputerShop
         private void AddShop_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AddNewShopPage());
+        }
+
+        /// <summary>
+        /// получаем магазины и заполняем listview
+        /// </summary>
+        private async void GetShops()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT * FROM GetShops";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = dataReader[0];
+                    item.Content = (new ShopElement(Convert.ToInt32(dataReader[0]),
+                    dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(),
+                    Convert.ToString(dataReader[4].ToString() + " " +
+                    dataReader[5].ToString() + " " + dataReader[6].ToString())));
+                    ShopList.Items.Add(item);
+                }
+            }
+            catch (SqlException ex)
+            {
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
         }
     }
 }

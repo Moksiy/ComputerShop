@@ -10,13 +10,13 @@
 
     <Grid Background="#FFE7E7E7">
         <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <ListView x:Name="ProductList" FontSize="14" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="950" MaxWidth="1900" Margin="20,40,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
+        <ListView x:Name="ShopList" FontSize="14" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="950" MaxWidth="1900" Margin="20,40,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Название" Width="200" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Адрес" Width="300" DisplayMemberBinding="{Binding Address}"/>
                     <GridViewColumn Header="Телефон" Width="180" DisplayMemberBinding="{Binding PhoneNumber}"/>
-                    <GridViewColumn Header="Директор" Width="270" DisplayMemberBinding="{Binding DirectorID}"/>
+                    <GridViewColumn Header="Директор" Width="270" DisplayMemberBinding="{Binding Director}"/>
                 </GridView>
             </ListView.View>
 
