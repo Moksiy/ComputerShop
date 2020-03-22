@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для AddNewSupplierPage.xaml
+    /// Логика взаимодействия для MoreInfoShopPage.xaml
     /// </summary>
-    public partial class AddNewSupplierPage : Page
+    public partial class MoreInfoShopPage : Page
     {
-        public AddNewSupplierPage()
+        public MoreInfoShopPage()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// назад
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.GoBack();
         }
     }
 }

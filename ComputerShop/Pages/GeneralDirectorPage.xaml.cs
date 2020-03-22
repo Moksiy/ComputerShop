@@ -63,7 +63,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Suppliers_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new SuppliersPage());
         }
 
         /// <summary>

@@ -22,9 +22,9 @@ namespace ComputerShop
         /// <summary>
         /// Удаление элемента
         /// </summary>
-        public static void Delete()
+        public static void Delete(int index)
         {
-
+            products.RemoveAt(index);
         }
 
     }

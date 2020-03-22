@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interfaces\Collection.cs" />
+    <Compile Include="Pages\MoreInfoShopPage.xaml.cs">
+      <DependentUpon>MoreInfoShopPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddNewSupplierPage.xaml.cs">
       <DependentUpon>AddNewSupplierPage.xaml</DependentUpon>
     </Compile>
@@ -108,7 +112,12 @@
       <DependentUpon>SuppliersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shops\ShopElement.cs" />
+    <Compile Include="Shops\ShopsList.cs" />
     <Compile Include="Suppliers\SupplierElement.cs" />
+    <Page Include="Pages\MoreInfoShopPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddNewSupplierPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
