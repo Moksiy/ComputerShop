@@ -102,14 +102,13 @@ namespace ComputerShop
         }
 
         /// <summary>
-        /// Удалить
+        /// Редактировать
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            //if(CurrentProduct.ID != null)
-
+            this.NavigationService.Navigate(new UpdateProductPage());
         }
 
         /// <summary>

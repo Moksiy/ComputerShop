@@ -122,6 +122,9 @@
     <Compile Include="Shops\ShopElement.cs" />
     <Compile Include="Shops\ShopsList.cs" />
     <Compile Include="Suppliers\SupplierElement.cs" />
+    <Compile Include="UpdateProductPage.xaml.cs">
+      <DependentUpon>UpdateProductPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="Pages\MoreInfoShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ShipmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
