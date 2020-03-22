@@ -47,7 +47,9 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Вы уверены, что хотите уволить сотрудника?", "Увольнение сотрудника", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+                DismissEmployee(CurrentEmployee.ID);
         }
 
         /// <summary>
@@ -57,7 +59,11 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void ListViewItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            ListViewItem item = sender as ListViewItem;
+            object obj = item.Tag;
+            ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
+            cm.IsOpen = true;
+            CurrentEmployee.ID = Convert.ToInt32(obj);
         }
 
         /// <summary>
@@ -82,7 +88,7 @@ namespace ComputerShop
                 connection.ConnectionString = MainWindow.ConnectionSrting;
 
                 //Открываем подключение
-                connection.Open();
+                await connection.OpenAsync();
 
                 SqlCommand command = new SqlCommand();
 
@@ -93,9 +99,10 @@ namespace ComputerShop
 
                 SqlDataReader dataReader = command.ExecuteReader();
 
+                EmployeeList.Items.Clear();
+
                 while (dataReader.Read())
                 {
-
                     ListViewItem item = new ListViewItem();
                     item.Content = new EmployeeElement(dataReader[0] == DBNull.Value ? DefaultImage : (byte[])dataReader[0],
                     dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(),
@@ -117,6 +124,43 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Уволить сотрудника
+        /// </summary>
+        private async void DismissEmployee(int id)
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "UPDATE Employee SET StatusID = 1 WHERE ID = " + id;
+
+                command.Connection = connection;
+
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+                GetEmployee();
             }
         }
     }
