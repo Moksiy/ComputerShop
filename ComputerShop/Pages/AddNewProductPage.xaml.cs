@@ -363,7 +363,7 @@ namespace ComputerShop
         {
             if (Index != 0)
             {
-                Characts.Items.RemoveAt(Index - 1);
+                //foreach(ListViewItem in )
                 Characteristics.Remove(Index - 1);
             }
         }

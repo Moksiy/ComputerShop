@@ -17,14 +17,14 @@
             </ListView.View>
 
             <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <EventSetter Event="UIElement.PreviewMouseRightButtonDown" Handler="ListViewItem_PreviewMouseRightButtonDown" />
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseRightButtonDown" Handler="ListViewItem_PreviewMouseRightButtonDown" />
                 </Style>
             </ListView.ItemContainerStyle>
 
             <ListView.ContextMenu>
                 <ContextMenu x:Name="CONTEXT">
-                    <MenuItem Header="Удалить" Click="MenuItem_Click"/>
+                    <MenuItem Header="Удалить" Click="MenuItem_Click"></MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
 

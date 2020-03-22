@@ -57,5 +57,10 @@ namespace ComputerShop
         {
             return characteristics.Count();
         }
+
+        public static void Clear()
+        {
+            characteristics.Clear();
+        }
     }
 }

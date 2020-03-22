@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace ComputerShop
 {
@@ -23,7 +25,14 @@ namespace ComputerShop
         public UpdateProductPage()
         {
             InitializeComponent();
+            GetCategories();
+            
         }
+
+        public string FilePath { get; set; }
+        public byte[] ImageData { get; set; }
+
+        public int Index { get; set; }
 
         /// <summary>
         /// Сохранить изменения
@@ -52,7 +61,22 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void AddPhoto_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "JPG Files (*.jpg)|*.jpg";
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                FilePath = dlg.FileName;
 
+                using (System.IO.FileStream fs = new System.IO.FileStream(FilePath, System.IO.FileMode.Open))
+                {
+                    ImageData = new byte[fs.Length];
+
+                    fs.Read(ImageData, 0, ImageData.Length);
+                }
+                ProductImage.Source = new BitmapImage(new Uri(dlg.FileName.ToString()));
+            }
         }
 
         /// <summary>
@@ -76,7 +100,7 @@ namespace ComputerShop
             object obj = item.Tag;
             ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
             cm.IsOpen = true;
-            CurrentProduct.ID = Convert.ToInt32(obj);
+            Index = Convert.ToInt32(obj);
         }
 
         /// <summary>
@@ -86,7 +110,16 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Index > 0)
+            {
+                //Characts.Items.RemoveAt(Index-1);
+                foreach(ListViewItem item in this.Characts.Items)
+                {
+                    if (Convert.ToInt32(item.Tag) == Index)
+                        Characts.Items.Remove(item);
+                }
+                //Characteristics.Remove(Index-1);
+            }
         }
 
         /// <summary>
@@ -97,6 +130,151 @@ namespace ComputerShop
         private void CostBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !(Char.IsDigit(e.Text, 0));
+        }
+
+        private async void GetCategories()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT * FROM Types";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Categories.Items.Add(new ComboBoxItem { Tag = dataReader[0], Content = dataReader[1] });
+                }
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+                GetProductInfo();
+                GetCharacteristics();
+            }
+        }
+
+        private async void GetProductInfo()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT Images.ImageData, Products.ProductName, Products.Manufacturer, Products.Artikul, Products.Cost, Products.TypeID FROM     dbo.Images INNER JOIN dbo.Products ON dbo.Images.ID = dbo.Products.ID WHERE Products.ID = " + CurrentProduct.ID;
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    ProductImage.Source = ImageFromBuffer((byte[])dataReader[0]);
+                    Name.Text = dataReader[1].ToString();
+                    Manufacture.Text = dataReader[2].ToString();
+                    Artikul.Text = dataReader[3].ToString();
+                    CostBox.Text = Convert.ToInt32(dataReader[4]).ToString();
+                    Categories.SelectedIndex = Convert.ToInt32(dataReader[5]);
+                }
+            }
+            catch (SqlException ex)
+            {
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Конвертер массива байтов в изображение
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public BitmapImage ImageFromBuffer(Byte[] bytes)
+        {
+            MemoryStream stream = new MemoryStream(bytes);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.EndInit();
+            return image;
+        }
+
+        /// <summary>
+        /// Получаем харакетристики в список
+        /// </summary>
+        private async void GetCharacteristics()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT * FROM Characteristics WHERE ID = " + CurrentProduct.ID;
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                Characteristics.Clear();
+
+                int i = 1;
+
+                while (dataReader.Read())
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Content = dataReader[1].ToString() + " : " + dataReader[2].ToString();
+                    item.Tag = i++;
+                    Characts.Items.Add(item);
+                    Characteristics.Add(dataReader[1].ToString(), dataReader[2].ToString());
+                }
+            }
+            catch (SqlException ex)
+            {
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
         }
     }
 }
