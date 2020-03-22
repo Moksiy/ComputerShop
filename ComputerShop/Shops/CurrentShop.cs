@@ -8,6 +8,6 @@ namespace ComputerShop
 {
     public static class CurrentShop
     {
-        public static int ID { get; set; }
+        public static int ID { get; set; } = 0;
     }
 }

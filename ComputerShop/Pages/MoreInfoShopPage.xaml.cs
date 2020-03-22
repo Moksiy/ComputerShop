@@ -54,8 +54,9 @@ namespace ComputerShop
                 command.CommandText = "SELECT dbo.Shipments.ID, dbo.Products.ProductName," +
                     " dbo.Shipments.Quantity, dbo.Suppliers.SupplierName, dbo.Shipments.Date" +
                     " FROM     dbo.Shipments INNER JOIN dbo.Products ON dbo.Shipments.ProductID = dbo.Products.ID" +
-                    " INNER JOIN dbo.Suppliers ON dbo.Shipments.SupplierID = dbo.Suppliers.ID " +
-                    " WHERE dbo.Shipments.WarehouseID = " + CurrentShop.ID;
+                    " INNER JOIN dbo.Suppliers ON dbo.Shipments.SupplierID = dbo.Suppliers.ID ";
+                    if(CurrentShop.ID > 0)
+                        command.CommandText += "WHERE dbo.Shipments.WarehouseID = " + CurrentShop.ID; 
 
                 command.Connection = connection;
 

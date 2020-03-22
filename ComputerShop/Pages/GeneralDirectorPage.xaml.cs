@@ -73,7 +73,8 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Shipments_Click(object sender, RoutedEventArgs e)
         {
-
+            CurrentShop.ID = 0;
+            this.NavigationService.Navigate(new MoreInfoShopPage());
         }
 
         /// <summary>
