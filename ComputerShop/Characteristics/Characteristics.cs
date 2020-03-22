@@ -17,7 +17,7 @@ namespace ComputerShop
         /// <param name="text">Текст характеристики</param>
         public static void Add(string name, string text)
         {
-            characteristics.Add(new CharacteristicElement(name, text));
+            characteristics.Add(new CharacteristicElement(name, text));       
         }
 
         /// <summary>
@@ -58,9 +58,26 @@ namespace ComputerShop
             return characteristics.Count();
         }
 
+        /// <summary>
+        /// Чистим список
+        /// </summary>
         public static void Clear()
         {
             characteristics.Clear();
+        }
+
+        /// <summary>
+        /// Возвращаем индекс нужного элемента
+        /// </summary>
+        /// <returns></returns>
+        public static int IndexOf(CharacteristicElement item)
+        {
+            for(int i = 0; i < characteristics.Count; i++)
+            {
+                if (characteristics[i].Name == item.Name && characteristics[i].Text == item.Text)
+                    return i;                
+            }
+            return -1;
         }
     }
 }

@@ -79,7 +79,7 @@ namespace ComputerShop
         /// <summary>
         /// Индекс для контекстного меню
         /// </summary>
-        public static int Index { get; set; }
+        public static CharacteristicElement Element { get; set; }
 
         /// <summary>
         /// Переход на предыдущую страницу
@@ -133,7 +133,7 @@ namespace ComputerShop
                 Characteristics.Add(CName.Text, CText.Text);
                 ListViewItem item = new ListViewItem();
                 item.Content = CName.Text + " : " + CText.Text;
-                item.Tag = Characteristics.Count();
+                item.Tag = new CharacteristicElement(CName.Text, CText.Text);
                 Characts.Items.Add(item);
 
                 //Ресетаем контент
@@ -361,10 +361,11 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (Index != 0)
+            int index = Characteristics.IndexOf(Element);
+            if (index >= 0)
             {
-                //foreach(ListViewItem in )
-                Characteristics.Remove(Index - 1);
+                Characteristics.Remove(index);
+                Characts.Items.RemoveAt(index);
             }
         }
 
@@ -379,7 +380,7 @@ namespace ComputerShop
             object obj = item.Tag;
             ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
             cm.IsOpen = true;
-            Index = Convert.ToInt32(obj);
+            Element = (CharacteristicElement)obj;
         }
 
         /// <summary>

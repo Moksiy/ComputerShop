@@ -26,13 +26,13 @@ namespace ComputerShop
         {
             InitializeComponent();
             GetCategories();
-            
+
         }
 
         public string FilePath { get; set; }
         public byte[] ImageData { get; set; }
 
-        public int Index { get; set; }
+        public CharacteristicElement Element { get; set; }
 
         /// <summary>
         /// Сохранить изменения
@@ -100,7 +100,7 @@ namespace ComputerShop
             object obj = item.Tag;
             ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
             cm.IsOpen = true;
-            Index = Convert.ToInt32(obj);
+            Element = (CharacteristicElement)obj;
         }
 
         /// <summary>
@@ -110,15 +110,11 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (Index > 0)
+            int index = Characteristics.IndexOf(Element);
+            if (index >= 0)
             {
-                //Characts.Items.RemoveAt(Index-1);
-                foreach(ListViewItem item in this.Characts.Items)
-                {
-                    if (Convert.ToInt32(item.Tag) == Index)
-                        Characts.Items.Remove(item);
-                }
-                //Characteristics.Remove(Index-1);
+                Characteristics.Remove(index);
+                Characts.Items.RemoveAt(index);
             }
         }
 
@@ -254,13 +250,11 @@ namespace ComputerShop
 
                 Characteristics.Clear();
 
-                int i = 1;
-
                 while (dataReader.Read())
                 {
                     ListViewItem item = new ListViewItem();
                     item.Content = dataReader[1].ToString() + " : " + dataReader[2].ToString();
-                    item.Tag = i++;
+                    item.Tag = new CharacteristicElement(dataReader[1].ToString(), dataReader[2].ToString());
                     Characts.Items.Add(item);
                     Characteristics.Add(dataReader[1].ToString(), dataReader[2].ToString());
                 }
