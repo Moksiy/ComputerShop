@@ -41,7 +41,169 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            ResetColors();
 
+            if (!String.IsNullOrEmpty(Name.Text) &&
+                !String.IsNullOrEmpty(Manufacture.Text) &&
+                !String.IsNullOrEmpty(Artikul.Text) &&
+                Categories.SelectedItem != null &&
+                !String.IsNullOrEmpty(CostBox.Text))
+            {
+                UpdateProduct();
+            }
+            else
+            {
+                if (String.IsNullOrEmpty(Name.Text))
+                    Name.BorderBrush = Brushes.Red;
+                if (String.IsNullOrEmpty(Manufacture.Text))
+                    Manufacture.BorderBrush = Brushes.Red;
+                if (String.IsNullOrEmpty(Artikul.Text))
+                    Artikul.BorderBrush = Brushes.Red;
+                if (String.IsNullOrEmpty(CostBox.Text))
+                    CostBox.BorderBrush = Brushes.Red;
+            }
+        }
+
+        /// <summary>
+        /// Сброс выделения цветом всех элементов
+        /// </summary>
+        private void ResetColors()
+        {
+            Name.BorderBrush = Brushes.SlateGray;
+            Manufacture.BorderBrush = Brushes.SlateGray;
+            Artikul.BorderBrush = Brushes.SlateGray;
+            Categories.BorderBrush = Brushes.SlateGray;
+            CostBox.BorderBrush = Brushes.SlateGray;
+        }
+
+        /// <summary>
+        /// Обновление продукта
+        /// </summary>
+        private async void UpdateProduct()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "UPDATE Products SET ProductName = '"+Name.Text+"'," +
+                " Artikul = '"+Artikul.Text+"', Manufacturer = '"+Manufacture.Text+
+                "', TypeID = '"+Categories.SelectedIndex+"', Cost = "+CostBox.Text+" WHERE ID = "+CurrentProduct.ID;
+
+                command.Connection = connection;
+
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+                UpdateCharacts();
+                AddImage();
+            }
+        }
+
+        private async void AddImage()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = @"UPDATE Images SET FileName = @FileName, Title = @Title, ImageData = @ImageData "+
+                "WHERE ID = "+ CurrentProduct.ID;
+
+                command.Connection = connection;
+
+                command.Parameters.Add("@FileName", System.Data.SqlDbType.NVarChar, 50);
+
+                command.Parameters.Add("@Title", System.Data.SqlDbType.NVarChar, 50);
+
+                command.Parameters.Add("@ImageData", System.Data.SqlDbType.Image, 1000000);
+
+                string shortFileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1);
+
+                // передаем данные в команду через параметры
+                command.Parameters["@FileName"].Value = shortFileName;
+                command.Parameters["@Title"].Value = Categories.Text.ToString();
+                command.Parameters["@ImageData"].Value = ImageData;
+
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+
+            this.NavigationService.GoBack();
+        }
+
+        /// <summary>
+        /// обновление характеристик
+        /// </summary>
+        private async void UpdateCharacts()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "DELETE FROM Characteristics WHERE ID = " + CurrentProduct.ID;
+
+                foreach(var item in Characteristics.Get())
+                {
+                    command.CommandText += " INSERT INTO Characteristics VALUES("+CurrentProduct.ID+",'"+item.Name+"','"+item.Text+"')";
+                }
+
+                command.Connection = connection;
+
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
         }
 
         /// <summary>
@@ -51,7 +213,36 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void AddCharact_Click(object sender, RoutedEventArgs e)
         {
+            //ресетаем цвета текстбоксов
+            CName.BorderBrush = Brushes.SlateGray;
+            CText.BorderBrush = Brushes.SlateGray;
 
+            if (!String.IsNullOrEmpty(CName.Text) && !String.IsNullOrEmpty(CText.Text))
+            {
+                if (!Characteristics.IsContains(CName.Text))
+                {
+                    Characteristics.Add(CName.Text, CText.Text);
+                    ListViewItem item = new ListViewItem();
+                    item.Content = CName.Text + " : " + CText.Text;
+                    item.Tag = new CharacteristicElement(CName.Text, CText.Text);
+                    Characts.Items.Add(item);
+
+                    //Ресетаем контент
+                    CName.Text = "";
+                    CText.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Характеристика уже есть в списке");
+                }
+            }
+            else
+            {
+                if (String.IsNullOrEmpty(CName.Text))
+                    CName.BorderBrush = Brushes.Red;
+                if (String.IsNullOrEmpty(CText.Text))
+                    CText.BorderBrush = Brushes.Red;
+            }
         }
 
         /// <summary>
@@ -191,6 +382,7 @@ namespace ComputerShop
                 while (dataReader.Read())
                 {
                     ProductImage.Source = ImageFromBuffer((byte[])dataReader[0]);
+                    ImageData = (byte[])dataReader[0];
                     Name.Text = dataReader[1].ToString();
                     Manufacture.Text = dataReader[2].ToString();
                     Artikul.Text = dataReader[3].ToString();

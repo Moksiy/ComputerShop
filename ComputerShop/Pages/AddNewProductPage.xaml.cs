@@ -130,15 +130,22 @@ namespace ComputerShop
 
             if (!String.IsNullOrEmpty(CName.Text) && !String.IsNullOrEmpty(CText.Text))
             {
-                Characteristics.Add(CName.Text, CText.Text);
-                ListViewItem item = new ListViewItem();
-                item.Content = CName.Text + " : " + CText.Text;
-                item.Tag = new CharacteristicElement(CName.Text, CText.Text);
-                Characts.Items.Add(item);
+                if (!Characteristics.IsContains(CName.Text))
+                {
+                    Characteristics.Add(CName.Text, CText.Text);
+                    ListViewItem item = new ListViewItem();
+                    item.Content = CName.Text + " : " + CText.Text;
+                    item.Tag = new CharacteristicElement(CName.Text, CText.Text);
+                    Characts.Items.Add(item);
 
-                //Ресетаем контент
-                CName.Text = "";
-                CText.Text = "";
+                    //Ресетаем контент
+                    CName.Text = "";
+                    CText.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Характеристика уже есть в списке");
+                }
             }
             else
             {

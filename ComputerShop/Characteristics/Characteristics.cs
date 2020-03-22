@@ -79,5 +79,19 @@ namespace ComputerShop
             }
             return -1;
         }
+
+        /// <summary>
+        /// Проверяем характеристику на содержание в списке
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsContains(string name)
+        {
+            foreach(CharacteristicElement item in characteristics)
+            {
+                if (item.Name == name)
+                    return true;
+            }
+            return false;
+        }
     }
 }
