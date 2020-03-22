@@ -48,17 +48,17 @@ namespace ComputerShop
             object obj = item.Tag;
             ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
             cm.IsOpen = true;
-            CurrentProduct.ID = Convert.ToInt32(obj);
+            CurrentShop.ID = Convert.ToInt32(obj);
         }
 
         /// <summary>
-        /// Подробнее (посмотреть склад магазина и немного инфы из бд)
+        /// Поставки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new MoreInfoShopPage());
         }
 
         /// <summary>
@@ -125,6 +125,16 @@ namespace ComputerShop
                 //В любом случае закрываем подключение
                 connection.Close();
             }
+        }
+
+        /// <summary>
+        /// Склад (посмотреть товары в наличии)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

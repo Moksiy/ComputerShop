@@ -111,6 +111,8 @@
     <Compile Include="Pages\SuppliersPage.xaml.cs">
       <DependentUpon>SuppliersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shipments\ShipmentElement.cs" />
+    <Compile Include="Shops\CurrentShop.cs" />
     <Compile Include="Shops\ShopElement.cs" />
     <Compile Include="Shops\ShopsList.cs" />
     <Compile Include="Suppliers\SupplierElement.cs" />
