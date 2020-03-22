@@ -74,6 +74,7 @@ namespace ComputerShop
                     item.Content = (new ProductElement(Convert.ToInt32(dataReader[0]),
                         (byte[])(dataReader[1]), dataReader[2].ToString(),
                         dataReader[3].ToString(), dataReader[4].ToString(), Convert.ToInt32(dataReader[5])));
+                    item.BorderBrush = Brushes.LightGray;
                     ProductList.Items.Add(item);
                 }
             }

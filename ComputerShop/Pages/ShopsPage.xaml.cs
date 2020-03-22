@@ -112,6 +112,7 @@ namespace ComputerShop
                     dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(),
                     Convert.ToString(dataReader[4].ToString() + " " +
                     dataReader[5].ToString() + " " + dataReader[6].ToString())));
+                    item.BorderBrush = Brushes.LightGray;
                     ShopList.Items.Add(item);
                 }
             }

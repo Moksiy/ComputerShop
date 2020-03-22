@@ -17,18 +17,18 @@ using System.Data.SqlClient;
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для MoreInfoShopPage.xaml
+    /// Логика взаимодействия для ShipmentsPage.xaml
     /// </summary>
-    public partial class MoreInfoShopPage : Page
+    public partial class ShipmentsPage : Page
     {
-        public MoreInfoShopPage()
+        public ShipmentsPage()
         {
             InitializeComponent();
             GetShipments();
         }
 
         /// <summary>
-        /// назад
+        /// Назад
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -51,11 +51,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT dbo.Shipments.ID, dbo.Products.ProductName," +
-                    " dbo.Shipments.Quantity, dbo.Suppliers.SupplierName, dbo.Shipments.Date" +
-                    " FROM     dbo.Shipments INNER JOIN dbo.Products ON dbo.Shipments.ProductID = dbo.Products.ID" +
-                    " INNER JOIN dbo.Suppliers ON dbo.Shipments.SupplierID = dbo.Suppliers.ID "+ 
-                    "WHERE dbo.Shipments.WarehouseID = " + CurrentShop.ID; 
+                command.CommandText = "SELECT * FROM GetShipments";
 
                 command.Connection = connection;
 
@@ -65,9 +61,10 @@ namespace ComputerShop
                 {
                     ListViewItem item = new ListViewItem();
                     item.Tag = dataReader[0];
-                    item.Content = (new ShipmentElement(Convert.ToInt32(dataReader[0]),
+                    item.Content = (new ShipmentsElement(Convert.ToInt32(dataReader[0]),
                     dataReader[1].ToString(), Convert.ToInt32(dataReader[2]),
-                    dataReader[3].ToString(), Convert.ToDateTime(dataReader[4])));
+                    dataReader[3].ToString(), Convert.ToDateTime(dataReader[4]), dataReader[5].ToString()));
+                    item.BorderBrush = Brushes.LightGray;
                     ShipmentsList.Items.Add(item);
                 }
             }

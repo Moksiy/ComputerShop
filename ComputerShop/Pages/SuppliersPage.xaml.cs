@@ -97,6 +97,7 @@ namespace ComputerShop
                     item.Tag = dataReader[0];
                     item.Content = (new SupplierElement(Convert.ToInt32(dataReader[0]),
                     dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString()));
+                    item.BorderBrush = Brushes.LightGray;
                     SuppliersList.Items.Add(item);
                 }
             }

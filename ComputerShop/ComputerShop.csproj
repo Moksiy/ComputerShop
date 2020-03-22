@@ -111,7 +111,11 @@
     <Compile Include="Pages\SuppliersPage.xaml.cs">
       <DependentUpon>SuppliersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ShipmentsPage.xaml.cs">
+      <DependentUpon>ShipmentsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shipments\ShipmentElement.cs" />
+    <Compile Include="Shipments\ShipmentsElement.cs" />
     <Compile Include="Shops\CurrentShop.cs" />
     <Compile Include="Shops\ShopElement.cs" />
     <Compile Include="Shops\ShopsList.cs" />
@@ -202,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SuppliersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShipmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
