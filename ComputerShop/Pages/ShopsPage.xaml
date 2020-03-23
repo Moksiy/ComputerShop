@@ -30,7 +30,7 @@
                 <ContextMenu x:Name="CONTEXT">
                     <MenuItem Header="Поставки" Click="MenuItem_Click"/>
                     <MenuItem Header="Склад" Click="MenuItem_Click_2"/>
-                    <MenuItem Header="Удалить" Click="MenuItem_Click_1"/>
+                    <MenuItem Header="Редактировать" Click="MenuItem_Click_1"/>
                 </ContextMenu>
             </ListView.ContextMenu>
 

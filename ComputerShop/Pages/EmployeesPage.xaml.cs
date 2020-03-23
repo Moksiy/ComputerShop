@@ -163,5 +163,15 @@ namespace ComputerShop
                 GetEmployee();
             }
         }
+
+        /// <summary>
+        /// Редактировать данные
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new UpdateEmployeePage());
+        }
     }
 }

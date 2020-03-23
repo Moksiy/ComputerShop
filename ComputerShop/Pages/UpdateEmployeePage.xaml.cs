@@ -13,20 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для AddNewEmployeePage.xaml
+    /// Логика взаимодействия для UpdateEmployeePage.xaml
     /// </summary>
-    public partial class AddNewEmployeePage : Page
+    public partial class UpdateEmployeePage : Page
     {
-        public AddNewEmployeePage()
+        public UpdateEmployeePage()
         {
             InitializeComponent();
             EmpImage.Source = new BitmapImage(new Uri("/Images/defImage.jpg", UriKind.Relative)) { CreateOptions = BitmapCreateOptions.IgnoreImageCache };
-            AddShops();
-            AddPositions();
+            GetPositions();
+            GetShops();
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace ComputerShop
         public static string FilePath { get; set; }
 
         /// <summary>
-        /// Назад, на предыдущую вкладку
+        /// Назад
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -50,11 +51,11 @@ namespace ComputerShop
         }
 
         /// <summary>
-        /// Добавить сотрудника
+        /// Сохранить изменения
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddEmployee_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             ResetBorders();
             if (!String.IsNullOrEmpty(FirstName.Text) &&
@@ -65,7 +66,7 @@ namespace ComputerShop
                !String.IsNullOrEmpty(Shop.Text) &&
                !String.IsNullOrEmpty(Position.Text))
             {
-                AddEmpl();
+                UpdateEmloyee();
             }
             else
             {
@@ -87,64 +88,7 @@ namespace ComputerShop
         }
 
         /// <summary>
-        /// Сброс выделения элементов
-        /// </summary>
-        private void ResetBorders()
-        {
-            FirstName.BorderBrush = Brushes.SlateGray;
-            LastName.BorderBrush = Brushes.SlateGray;
-            Patronom.BorderBrush = Brushes.SlateGray;
-            Login.BorderBrush = Brushes.SlateGray;
-            Password.BorderBrush = Brushes.SlateGray;
-            Shop.BorderBrush = Brushes.SlateGray;
-            Position.BorderBrush = Brushes.SlateGray;
-        }
-
-        /// <summary>
-        /// Добавление сотрудника в БД
-        /// </summary>
-        private async void AddEmpl()
-        {
-            SqlConnection connection = new SqlConnection();
-
-            try
-            {
-                connection.ConnectionString = MainWindow.ConnectionSrting;
-
-                //Открываем подключение
-                await connection.OpenAsync();
-
-                SqlCommand command = new SqlCommand();
-
-                //Запрос
-                command.CommandText = @"INSERT INTO Employee VALUES ((SELECT ISNULL(MAX(Employee.ID),0) FROM Employee) + 1,'"
-                +LastName.Text+"','"+FirstName.Text+"','"+Patronom.Text+"','"+Shop.SelectedIndex+"','"+Position.SelectedIndex+
-                "',0)";
-
-                command.Connection = connection;
-
-                command.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                connection.Close();
-                SynchronizationErrors.New(ex.ToString());
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                //В любом случае закрываем подключение
-                connection.Close();
-                AddUser();
-            }
-
-            //Если изображение загружено, то вызываем метод добавления изображения в бд
-            if (!String.IsNullOrEmpty(FilePath))
-                AddImage();
-        }
-
-        /// <summary>
-        /// Выбор фото сотрудника через диалоговое окно
+        /// Добавить фото
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -169,7 +113,109 @@ namespace ComputerShop
             }
         }
 
-        private async void AddShops()
+        /// <summary>
+        /// Сброс выделения элементов
+        /// </summary>
+        private void ResetBorders()
+        {
+            FirstName.BorderBrush = Brushes.SlateGray;
+            LastName.BorderBrush = Brushes.SlateGray;
+            Patronom.BorderBrush = Brushes.SlateGray;
+            Login.BorderBrush = Brushes.SlateGray;
+            Password.BorderBrush = Brushes.SlateGray;
+            Shop.BorderBrush = Brushes.SlateGray;
+            Position.BorderBrush = Brushes.SlateGray;
+        }
+
+        /// <summary>
+        /// Получаем данные о сотруднике из БД
+        /// </summary>
+        private async void GetEmployeeInfo()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT dbo.Employee.LastName, dbo.Employee.Name, dbo.Employee.Patronymic, dbo.Employee.ShopID, dbo.Employee.PositionID, dbo.Employee.StatusID, dbo.EmployeePhoto.ImageData, dbo.Users.Login, dbo.Users.Password FROM     dbo.Employee INNER JOIN dbo.Users ON dbo.Employee.ID = dbo.Users.EmployeeID LEFT OUTER JOIN dbo.EmployeePhoto ON dbo.Employee.ID = dbo.EmployeePhoto.ID WHERE Employee.ID = " + CurrentEmployee.ID;
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    LastName.Text = dataReader[0].ToString();
+                    FirstName.Text = dataReader[1].ToString();
+                    Patronom.Text = dataReader[2].ToString();
+                    Shop.SelectedIndex = Convert.ToInt32(dataReader[3]);
+                    Position.SelectedIndex = Convert.ToInt32(dataReader[4])-1;
+                    if (!(dataReader[6] is DBNull))
+                        EmpImage.Source = ImageFromBuffer((byte[])dataReader[6]);
+                    Login.Text = dataReader[7].ToString();
+                    Password.Text = dataReader[8].ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+        }
+
+        private async void GetPositions()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT * FROM Positions WHERE ID > 0";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Position.Items.Add(new ComboBoxItem { Tag = dataReader[0], Content = dataReader[1] });
+                }
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+                GetEmployeeInfo();
+            }
+        }
+
+        private async void GetShops()
         {
             SqlConnection connection = new SqlConnection();
 
@@ -207,7 +253,25 @@ namespace ComputerShop
             }
         }
 
-        private async void AddPositions()
+        /// <summary>
+        /// Конвертер массива байтов в изображение
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public BitmapImage ImageFromBuffer(Byte[] bytes)
+        {
+            MemoryStream stream = new MemoryStream(bytes);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.EndInit();
+            return image;
+        }
+
+        /// <summary>
+        /// Обновляем данные а таблице сотрудники
+        /// </summary>
+        private async void UpdateEmloyee()
         {
             SqlConnection connection = new SqlConnection();
 
@@ -221,16 +285,11 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM Positions WHERE ID > 1";
+                command.CommandText = "UPDATE Employee SET LastName = '"+LastName.Text+"', [Name] = '"+FirstName.Text+"', Patronymic = '"+Patronom.Text+"', ShopID = "+Shop.SelectedIndex+", PositionID = "+(++Position.SelectedIndex)+" WHERE ID = " + CurrentEmployee.ID;
 
                 command.Connection = connection;
 
-                SqlDataReader dataReader = command.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    Position.Items.Add(new ComboBoxItem { Tag = dataReader[0], Content = dataReader[1] });
-                }
+                command.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -242,13 +301,14 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
+                UpdateUser();
             }
         }
 
         /// <summary>
-        /// Добавляем загруженное изображение в БД
+        /// Обновляем данные в таблице юзеров
         /// </summary>
-        private async void AddImage()
+        private async void UpdateUser()
         {
             SqlConnection connection = new SqlConnection();
 
@@ -262,7 +322,47 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = @"INSERT INTO EmployeePhoto VALUES ((SELECT MAX(ID) FROM Employee), @ImageData)";
+                command.CommandText = "UPDATE Users SET Login = '"+Login.Text+"', Password = '"+Password.Text+"' WHERE EmployeeID = "+CurrentEmployee.ID;
+
+                command.Connection = connection;
+
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+                if(ImageData != null)
+                    UpdatePhoto();
+                else
+                    this.NavigationService.GoBack();
+            }
+        }
+
+        /// <summary>
+        /// Обновляем фото, если его нет, то добавляем
+        /// </summary>
+        private async void UpdatePhoto()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = @"IF (SELECT COUNT(ID) FROM EmployeePhoto WHERE ID = "+CurrentEmployee.ID+@") > 0 BEGIN UPDATE EmployeePhoto SET ImageData = @ImageData WHERE ID = " + CurrentEmployee.ID+@" END ELSE BEGIN INSERT INTO EmployeePhoto VALUES ("+CurrentEmployee.ID+ @", @ImageData) END";
 
                 command.Connection = connection;
 
@@ -282,42 +382,7 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
-            }
-        }
-
-        /// <summary>
-        /// Добавляем новую учетку в БД
-        /// </summary>
-        private async void AddUser()
-        {
-            SqlConnection connection = new SqlConnection();
-
-            try
-            {
-                connection.ConnectionString = MainWindow.ConnectionSrting;
-
-                //Открываем подключение
-                await connection.OpenAsync();
-
-                SqlCommand command = new SqlCommand();
-
-                //Запрос
-                command.CommandText = "INSERT INTO Users VALUES('"+Login.Text+"','"+Password.Text+"',(SELECT MAX(Employee.ID) FROM Employee))";
-
-                command.Connection = connection;
-
-                command.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                connection.Close();
-                SynchronizationErrors.New(ex.ToString());
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                //В любом случае закрываем подключение
-                connection.Close();
+                this.NavigationService.GoBack();
             }
         }
     }
