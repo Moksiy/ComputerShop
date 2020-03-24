@@ -28,7 +28,7 @@
 
             <ListView.ContextMenu>
                 <ContextMenu x:Name="CONTEXT">
-                    <MenuItem Header="Удалить" Click="MenuItem_Click"/>
+                    <MenuItem Header="Редактировать" Click="MenuItem_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
 

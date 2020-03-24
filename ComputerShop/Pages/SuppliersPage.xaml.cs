@@ -58,17 +58,17 @@ namespace ComputerShop
             object obj = item.Tag;
             ContextMenu cm = this.FindName("CONTEXT") as ContextMenu;
             cm.IsOpen = true;
-            CurrentProduct.ID = Convert.ToInt32(obj);
+            CurrentSupplier.ID = Convert.ToInt32(obj);
         }
 
         /// <summary>
-        /// Удалить поставщика
+        /// Редактировать
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new UpdateSupplierPage());
         }
 
         private async void GetSuppliers()

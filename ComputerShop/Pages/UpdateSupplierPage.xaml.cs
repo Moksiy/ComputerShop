@@ -17,13 +17,14 @@ using System.Data.SqlClient;
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для AddNewSupplierPage.xaml
+    /// Логика взаимодействия для UpdateSupplierPage.xaml
     /// </summary>
-    public partial class AddNewSupplierPage : Page
+    public partial class UpdateSupplierPage : Page
     {
-        public AddNewSupplierPage()
+        public UpdateSupplierPage()
         {
             InitializeComponent();
+            GetSupplierInfo();
         }
 
         /// <summary>
@@ -37,17 +38,17 @@ namespace ComputerShop
         }
 
         /// <summary>
-        /// Добавить поставщика
+        /// Сохранить изменения
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if(!String.IsNullOrEmpty(Name.Text)&&
-               !String.IsNullOrEmpty(Address.Text)&&
+            if (!String.IsNullOrEmpty(Name.Text) &&
+               !String.IsNullOrEmpty(Address.Text) &&
                !String.IsNullOrEmpty(Phone.Text))
             {
-                AddSupplier();
+                SaveChanges();
             }
             else
             {
@@ -61,9 +62,9 @@ namespace ComputerShop
         }
 
         /// <summary>
-        /// Добавляем потсавщика в БД
+        /// Получаем данные о поставщике из БД
         /// </summary>
-        private async void AddSupplier()
+        private async void GetSupplierInfo()
         {
             SqlConnection connection = new SqlConnection();
 
@@ -77,8 +78,50 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "INSERT INTO Suppliers VALUES((SELECT ISNULL(MAX(Suppliers.ID)+1,0) FROM Suppliers),'"+
-                    Name.Text+"','"+Address.Text+"','"+Phone.Text+"')";
+                command.CommandText = "SELECT * FROM Suppliers WHERE ID = "+CurrentSupplier.ID;
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Name.Text = dataReader[1].ToString();
+                    Address.Text = dataReader[2].ToString();
+                    Phone.Text = dataReader[3].ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Сохраняем изменения в БД
+        /// </summary>
+        private async void SaveChanges()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "UPDATE Suppliers SET SupplierName = '"+Name.Text
+                +"', Adress = '"+Address.Text+"', PhoneNumber = '"+Phone.Text+"' WHERE ID = "+CurrentSupplier.ID;
 
                 command.Connection = connection;
 
