@@ -65,6 +65,9 @@ namespace ComputerShop
             }
         }
 
+        /// <summary>
+        /// Сброс выделения
+        /// </summary>
         private void ResetColors()
         {
             Name.BorderBrush = Brushes.SlateGray;

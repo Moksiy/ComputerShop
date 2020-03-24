@@ -25,7 +25,7 @@
                     <GridViewColumn Header="Фамилия" Width="150" DisplayMemberBinding="{Binding LastName}"/>
                     <GridViewColumn Header="Имя" Width="150" DisplayMemberBinding="{Binding FirstName}"/>
                     <GridViewColumn Header="Отчество" Width="150" DisplayMemberBinding="{Binding Patronymic}"/>
-                    <GridViewColumn Header="Магазин" Width="200" DisplayMemberBinding="{Binding Shop}"/>
+                    <GridViewColumn Header="Место работы" Width="200" DisplayMemberBinding="{Binding Shop}"/>
                     <GridViewColumn Header="Должность" Width="220" DisplayMemberBinding="{Binding Position}"/>
                 </GridView>
             </ListView.View>
