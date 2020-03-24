@@ -10,6 +10,15 @@
 
     <Grid Background="#FFE7E7E7">
         <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
-
+        <TextBox  x:Name="Name" HorizontalAlignment="Center" Height="28" Margin="350,100,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Название " HorizontalAlignment="Center" Margin="352,66,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <TextBox  x:Name="Address" HorizontalAlignment="Center" Height="28" Margin="352,167,348,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Адрес " HorizontalAlignment="Center" Margin="352,133,582,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <TextBox  x:Name="Phone" HorizontalAlignment="Center" Height="28" Margin="352,229,348,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Телефон" HorizontalAlignment="Center" Margin="352,195,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
+        <Label Content="Директор" HorizontalAlignment="Center" Margin="352,257,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
+        <ComboBox x:Name="Director" HorizontalAlignment="Center" Margin="354,291,348,0" VerticalAlignment="Top" Width="298" Height="30"/>
+        <Button x:Name="Save" Content="Добавить магазин" HorizontalAlignment="Center" Margin="411,0,411,309" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="Save_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Label x:Name="Error" Content=" " HorizontalAlignment="Center" Margin="241,330,238,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="Red" Width="521" Height="35"/>
     </Grid>
 </Page>
