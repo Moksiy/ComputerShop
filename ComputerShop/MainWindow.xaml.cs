@@ -31,7 +31,7 @@ namespace ComputerShop
         {
             InitializeComponent();
             Center.Navigate(new AuthorizationPage());
-            //((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new GeneralDirectorPage());
+            LeftBar.Navigate(new StartBar());
         }
     }
 }

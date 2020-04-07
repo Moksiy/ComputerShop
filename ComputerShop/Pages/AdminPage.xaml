@@ -9,7 +9,7 @@
       Title="AdminPage">
 
     <Grid>
-        <ListView x:Name="ErList" HorizontalAlignment="Stretch" Margin="20,20,20,20" VerticalAlignment="Stretch" Width="auto" Height="auto">
+        <ListView x:Name="ErList" Background="LightGray" HorizontalAlignment="Stretch" Margin="20,20,20,20" VerticalAlignment="Stretch" Width="auto" Height="auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="50" DisplayMemberBinding="{Binding Path=ErrorID}">ID</GridViewColumn>

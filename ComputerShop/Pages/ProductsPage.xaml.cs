@@ -34,7 +34,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            this.NavigationService.GoBack();            
         }
 
         /// <summary>

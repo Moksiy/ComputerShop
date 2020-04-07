@@ -13,38 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
-using System.Threading;
 
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для AdminPage.xaml
+    /// Логика взаимодействия для MessagesPage.xaml
     /// </summary>
-    public partial class AdminPage : Page
+    public partial class MessagesPage : Page
     {
-        public AdminPage()
+        public MessagesPage()
         {
             InitializeComponent();
-
-            //Выводим ошибки в listview
-            Output();            
+            GetMessages();
         }
 
-        /// <summary>
-        /// Выход из учетки
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Logout_Click(object sender, RoutedEventArgs e)
-        {
-            Account.LogOut();
-            this.NavigationService.Navigate(new AuthorizationPage());
-        }
-
-        /// <summary>
-        /// Получаем список ошибок
-        /// </summary>
-        async void Output()
+        private async void GetMessages()
         {
             SqlConnection connection = new SqlConnection();
 
@@ -58,7 +41,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM ErrorList";
+                command.CommandText = "SELECT * FROM Messages";
 
                 command.Connection = connection;
 
@@ -66,19 +49,20 @@ namespace ComputerShop
 
                 while (dataReader.Read())
                 {
-                    ErList.Items.Add(new ErrorElement(dataReader[0].ToString(),
-                        dataReader[1].ToString(), dataReader[2].ToString(),
-                        Convert.ToDateTime(dataReader[3])));
+                    ListBoxItem item = new ListBoxItem();
+                    item.Content = dataReader[0];
+                    List.Items.Add(item);
                 }
             }
             catch (SqlException ex)
             {
                 SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
                 //В любом случае закрываем подключение
-                connection.Close();               
+                connection.Close();
             }
         }
     }

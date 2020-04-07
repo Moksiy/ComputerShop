@@ -5,28 +5,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ComputerShop"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="1000"
+      d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="950"
       Title="AddNewProductPage">
 
     <Grid>
         <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Logout_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Name" HorizontalAlignment="Center" Height="28" Margin="0,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <TextBox  x:Name="Manufacture" HorizontalAlignment="Center" Height="28" Margin="350,180,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <Label Content="Название " HorizontalAlignment="Center" Margin="0,66,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <Label Content="Производитель " HorizontalAlignment="Center" Margin="0,145,150,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Artikul" HorizontalAlignment="Center" Height="28" Margin="0,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10"/>
-        <Label Content="Артикул " HorizontalAlignment="Center" Margin="0,226,212,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <Label Content="Категория " HorizontalAlignment="Center" Margin="0,308,195,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <ComboBox x:Name="Categories" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Width="298" Height="30">
-            
+        <TextBox  x:Name="Name" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox  x:Name="Manufacture" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="325,180,325,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Название " HorizontalAlignment="Center" Margin="0,66,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray"/>
+        <Label Content="Производитель " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,145,150,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <TextBox  x:Name="Artikul" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10"/>
+        <Label Content="Артикул " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,226,212,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content="Категория " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,308,195,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <ComboBox x:Name="Categories"  Background="LightGray" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Width="298" Height="30">
+
         </ComboBox>
         <Image x:Name="ProductImage" Stretch="Fill" HorizontalAlignment="Center" Height="150" Margin="0,150,670,0" VerticalAlignment="Top" Width="180"/>
         <Button x:Name="AddPhoto" Content="+" HorizontalAlignment="Center" Margin="0,318,665,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="AddPhoto_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Button x:Name="AddProduct" Content="Добавить" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="150" Height="33" FontSize="20" Click="AddProduct_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <ListView x:Name="Characts" Foreground="Black" Background="#FFE7E7E7" HorizontalAlignment="Center" Height="270" Margin="675,100,25,0" VerticalAlignment="Top" Width="300">
+        <ListView x:Name="Characts" Foreground="Black" Background="LightGray" HorizontalAlignment="Center" Height="270" Margin="653,100,23,0" VerticalAlignment="Top" Width="274">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="300">Характеристики</GridViewColumn>
+                    <GridViewColumn Width="274">Характеристики</GridViewColumn>
                 </GridView>
             </ListView.View>
 
@@ -35,7 +35,7 @@
                     <EventSetter Event="PreviewMouseRightButtonDown" Handler="ListViewItem_PreviewMouseRightButtonDown" />
                 </Style>
             </ListView.ItemContainerStyle>
-            
+
             <ListView.ContextMenu>
                 <ContextMenu x:Name="CONTEXT">
                     <MenuItem Header="Удалить" Click="MenuItem_Click"></MenuItem>
@@ -43,16 +43,16 @@
             </ListView.ContextMenu>
 
         </ListView>
-        <TextBox  x:Name="CName" HorizontalAlignment="Center" Height="28" Margin="0,500,230,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
-        <TextBox  x:Name="CText" HorizontalAlignment="Center" Height="28" Margin="230,500,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
-        <Label Content="Название " HorizontalAlignment="Center" Margin="0,470,330,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <Label Content="Характеристика " HorizontalAlignment="Center" Margin="190,470,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <Label Content=": " HorizontalAlignment="Center" Margin="0,495,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <TextBox  x:Name="CName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,500,230,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
+        <TextBox  x:Name="CText" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="230,500,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
+        <Label Content="Название " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,470,330,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content="Характеристика " Foreground="LightGray" HorizontalAlignment="Center" Margin="190,470,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content=": " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,495,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Button x:Name="AddCharact" Content="+" HorizontalAlignment="Center" Margin="520,500,0,0" VerticalAlignment="Top" Width="50" Height="29" FontSize="15" Click="AddCharact_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Label x:Name="Error" Content="" HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="Red"/>
         <Label x:Name="ErrorImage" Content="" HorizontalAlignment="Center" Margin="0,491,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="Red"/>
-        <Label Content="Цена " HorizontalAlignment="Center" Margin="0,390,238,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="CostBox" HorizontalAlignment="Center" Height="28" Margin="0,420,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10" PreviewTextInput="CostBox_PreviewTextInput"/>
+        <Label Content="Цена " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,390,238,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <TextBox  x:Name="CostBox" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,420,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10" PreviewTextInput="CostBox_PreviewTextInput"/>
 
 
     </Grid>

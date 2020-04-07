@@ -1,4 +1,4 @@
-﻿<Page x:Class="ComputerShop.GeneralDirectorBar"
+﻿<Page x:Class="ComputerShop.AdminBar"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -74,47 +74,19 @@
                     </Setter>
                 </Style>
             </ListBox.Resources>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Products_Selected" x:Name="Products">
+            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Errors_Selected" x:Name="Errors">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Товары</TextBlock>
+                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Ошибки</TextBlock>
                 </StackPanel>
             </ListBoxItem>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Employee_Selected" x:Name="Employee">
+            
+            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Messages_Selected" x:Name="Messages">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Сoтрудники</TextBlock>
+                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Сообщения</TextBlock>
                 </StackPanel>
             </ListBoxItem>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Shops_Selected" x:Name="Shops">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Магазины</TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Suppliers_Selected" x:Name="Suppliers">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Поставщики</TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Shipments_Selected" x:Name="Shipments">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Поставки</TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Buyes_Selected" x:Name="Buyes">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Покупки</TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Orders_Selected" x:Name="Orders">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Заказы</TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Clients_Selected" x:Name="Clients">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Клиенты</TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Margin="0,150,0,0" Height="50" Selected="Exit_Selected" x:Name="Exit">
+            
+            <ListBoxItem Margin="0,490,0,0" Height="50" Selected="Exit_Selected" x:Name="Exit">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Выход</TextBlock>
                 </StackPanel>

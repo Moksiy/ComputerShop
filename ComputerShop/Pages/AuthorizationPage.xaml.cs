@@ -38,6 +38,7 @@ namespace ComputerShop
         private void RefreshCaptcha_Click(object sender, RoutedEventArgs e)
         {
             Captcha.Content = CaptchaBuild.Refresh();
+            CaptchaText.Text = "";
         }
 
         /// <summary>
@@ -50,7 +51,8 @@ namespace ComputerShop
             //Возвращаем исходный контур
             LoginBox.BorderBrush = Brushes.SlateGray;
             PasswordBox.BorderBrush = Brushes.SlateGray;
-            CaptchaText.BorderBrush = Brushes.SlateGray;            
+            CaptchaText.BorderBrush = Brushes.SlateGray;  
+            
 
             //Проверяем на заполненность логин и пароль
             if(!String.IsNullOrEmpty(LoginBox.Text) && !String.IsNullOrEmpty(PasswordBox.Password))
@@ -76,6 +78,7 @@ namespace ComputerShop
 
             //Рефрешим капчу
             Captcha.Content = CaptchaBuild.Refresh();
+            CaptchaText.Text = "";
         }
 
         /// <summary>
@@ -119,7 +122,8 @@ namespace ComputerShop
                     {
                         //Админ
                         case "0":
-                            this.NavigationService.Navigate(new AdminPage());
+                            this.NavigationService.Navigate(new LogoPage());
+                            ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new AdminBar());
                             break;
 
                         //Генеральный директор

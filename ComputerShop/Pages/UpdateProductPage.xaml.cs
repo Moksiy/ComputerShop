@@ -141,7 +141,7 @@ namespace ComputerShop
 
                 command.Parameters.Add("@ImageData", System.Data.SqlDbType.Image, 1000000);
 
-                string shortFileName = FilePath.Substring(FilePath.LastIndexOf('\\') + 1);
+                string shortFileName = "Image";
 
                 // передаем данные в команду через параметры
                 command.Parameters["@FileName"].Value = shortFileName;
@@ -162,7 +162,7 @@ namespace ComputerShop
                 connection.Close();
             }
 
-            this.NavigationService.GoBack();
+            this.NavigationService.Navigate(new ProductsPage());
         }
 
         /// <summary>

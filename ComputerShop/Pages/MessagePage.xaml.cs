@@ -13,38 +13,34 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
-using System.Threading;
 
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для AdminPage.xaml
+    /// Логика взаимодействия для MessagePage.xaml
     /// </summary>
-    public partial class AdminPage : Page
+    public partial class MessagePage : Page
     {
-        public AdminPage()
+        public MessagePage()
         {
             InitializeComponent();
-
-            //Выводим ошибки в listview
-            Output();            
         }
 
         /// <summary>
-        /// Выход из учетки
+        /// Отправить сообщение
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Logout_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Account.LogOut();
-            this.NavigationService.Navigate(new AuthorizationPage());
+            //Если поле не пустое
+            if(!String.IsNullOrEmpty(Message.Text))
+            {
+                AddMessage();
+            }
         }
 
-        /// <summary>
-        /// Получаем список ошибок
-        /// </summary>
-        async void Output()
+        private async void AddMessage()
         {
             SqlConnection connection = new SqlConnection();
 
@@ -58,27 +54,23 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM ErrorList";
+                command.CommandText = "INSERT INTO Messages VALUES('"+Message.Text+"')";
 
                 command.Connection = connection;
 
-                SqlDataReader dataReader = command.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    ErList.Items.Add(new ErrorElement(dataReader[0].ToString(),
-                        dataReader[1].ToString(), dataReader[2].ToString(),
-                        Convert.ToDateTime(dataReader[3])));
-                }
+                command.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
+                connection.Close();
                 SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
                 //В любом случае закрываем подключение
-                connection.Close();               
+                connection.Close();
+                this.NavigationService.Navigate(new LogoPage());
             }
         }
     }

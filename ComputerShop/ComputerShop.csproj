@@ -56,7 +56,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Elements\MessageElement.cs" />
+    <Compile Include="Pages\MessagePage.xaml.cs">
+      <DependentUpon>MessagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MessagesPage.xaml.cs">
+      <DependentUpon>MessagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StartBar.xaml.cs">
+      <DependentUpon>StartBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employee\CurrentEmployee.cs" />
+    <Compile Include="Pages\AdminBar.xaml.cs">
+      <DependentUpon>AdminBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LogoPage.xaml.cs">
       <DependentUpon>LogoPage.xaml</DependentUpon>
     </Compile>
@@ -99,9 +112,6 @@
     <Compile Include="Pages\DirectorPage.xaml.cs">
       <DependentUpon>DirectorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\GeneralDirectorPage.xaml.cs">
-      <DependentUpon>GeneralDirectorPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ConsultantPage.xaml.cs">
       <DependentUpon>ConsultantPage.xaml</DependentUpon>
     </Compile>
@@ -141,6 +151,22 @@
     <Compile Include="Pages\UpdateSupplierPage.xaml.cs">
       <DependentUpon>UpdateSupplierPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\MessagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MessagesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StartBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AdminBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\LogoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,10 +212,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\DirectorPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\GeneralDirectorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

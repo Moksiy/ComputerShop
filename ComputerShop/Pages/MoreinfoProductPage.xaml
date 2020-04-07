@@ -5,28 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ComputerShop"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="970"
+      d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="950"
       Title="MoreinfoProductPage">
 
     <Grid>
         <Image x:Name="ProductImage" HorizontalAlignment="Center" Height="190" Margin="0,80,650,0" VerticalAlignment="Top" Width="220" Source="{Binding UserImage}"/>
-        <Label Content="Название " HorizontalAlignment="Center" Margin="0,80,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBlock x:Name="ProductName" HorizontalAlignment="Center" Margin="533,85,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
-        <Label Content="Производитель " HorizontalAlignment="Center" Margin="0,120,149,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <Label Content="Артикул " HorizontalAlignment="Center" Margin="352,160,563,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <Label Content="Цена " HorizontalAlignment="Center" Margin="352,200,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
-        <TextBlock x:Name="Manufact" HorizontalAlignment="Center" Margin="533,125,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
-        <TextBlock x:Name="Artukul" HorizontalAlignment="Center" Margin="533,165,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
-        <TextBlock x:Name="Price" HorizontalAlignment="Center" Margin="533,205,89,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
-        <ListView x:Name="Charactes" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Center" Height="353" Margin="0,299,0,0" FontSize="18" VerticalAlignment="Top" Width="846">
+        <Label Content="Название " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,80,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <TextBlock x:Name="ProductName" Foreground="LightGray" HorizontalAlignment="Center" Margin="520,85,52,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
+        <Label Content="Производитель " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,120,149,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content="Артикул " Foreground="LightGray" HorizontalAlignment="Center" Margin="327,161,521,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
+        <Label Content="Цена " Foreground="LightGray"  HorizontalAlignment="Center" Margin="327,200,527,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
+        <TextBlock x:Name="Manufact" Foreground="LightGray" HorizontalAlignment="Center" Margin="520,125,52,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
+        <TextBlock x:Name="Artukul" Foreground="LightGray" HorizontalAlignment="Center" Margin="520,165,52,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
+        <TextBlock x:Name="Price" Foreground="LightGray" HorizontalAlignment="Center" Margin="520,205,52,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="378"/>
+        <ListView x:Name="Charactes" Background="LightGray" Foreground="Black" HorizontalAlignment="Center" Margin="52,323,52,70" FontSize="18" VerticalAlignment="Stretch" Width="846">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="" Width="250" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="" Width="585" DisplayMemberBinding="{Binding Text}"/>
-                </GridView> 
+                    <GridViewColumn Header="" Width="480" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="" Width="350" DisplayMemberBinding="{Binding Text}"/>
+                </GridView>
             </ListView.View>
-                       
-            
+
+
         </ListView>
+        <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
     </Grid>
 </Page>

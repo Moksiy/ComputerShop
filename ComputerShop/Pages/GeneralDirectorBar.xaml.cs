@@ -113,7 +113,7 @@ namespace ComputerShop
         private void Exit_Selected(object sender, RoutedEventArgs e)
         {
             ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new AuthorizationPage());
-            this.NavigationService.Navigate(null);
+            this.NavigationService.Navigate(new StartBar());
         }
     }
 }

@@ -10,23 +10,23 @@
 
     <Grid>
         <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <Label Content="Фамилия " HorizontalAlignment="Center" Margin="350,66,548,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
-        <TextBox  x:Name="LastName" HorizontalAlignment="Center" Height="28" Margin="350,100,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <TextBox  x:Name="FirstName" HorizontalAlignment="Center" Height="28" Margin="350,180,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <Label Content="Имя " HorizontalAlignment="Center" Margin="349.9,147,598.9,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Patronom" HorizontalAlignment="Center" Height="28" Margin="350,260,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <Label Content="Отчество " HorizontalAlignment="Center" Margin="350,226,556,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="94"/>
-        <ComboBox x:Name="Shop" HorizontalAlignment="Center" Margin="351,340,351,0" VerticalAlignment="Top" Width="298" Height="30"/>
-        <Label Content="Место работы" HorizontalAlignment="Center" Margin="351,306,505,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="144"/>
-        <ComboBox x:Name="Position" HorizontalAlignment="Center" Margin="350,420,352,0" VerticalAlignment="Top" Width="298" Height="30"/>
-        <Label Content="Должность " HorizontalAlignment="Center" Margin="351,386,532,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="117"/>
-        <TextBox  x:Name="Login" HorizontalAlignment="Center" Height="28" Margin="351,500,349,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <TextBox  x:Name="Password" HorizontalAlignment="Center" Height="28" Margin="351,580,349,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <Label Content="Логин учетной записи " HorizontalAlignment="Center" Margin="351,466,430,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="219"/>
-        <Label Content="Пароль учетной записи " HorizontalAlignment="Center" Margin="351,546,430,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="219"/>
-        <Button x:Name="Save" Content="Сохранить изменения" HorizontalAlignment="Center" Margin="411,0,411,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="Save_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content="Фамилия " Foreground="LightGray" HorizontalAlignment="Center" Margin="350,66,548,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
+        <TextBox  x:Name="LastName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,100,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox  x:Name="FirstName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,180,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Имя "  Foreground="LightGray" HorizontalAlignment="Center" Margin="349.9,147,598.9,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <TextBox  x:Name="Patronom" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,260,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Отчество "  Foreground="LightGray" HorizontalAlignment="Center" Margin="350,226,556,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="94"/>
+        <ComboBox x:Name="Shop" Background="LightGray" HorizontalAlignment="Center" Margin="351,340,351,0" VerticalAlignment="Top" Width="298" Height="30"/>
+        <Label Content="Место работы"  Foreground="LightGray" HorizontalAlignment="Center" Margin="351,306,505,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="144"/>
+        <ComboBox x:Name="Position" Background="LightGray" HorizontalAlignment="Center" Margin="350,420,352,0" VerticalAlignment="Top" Width="298" Height="30"/>
+        <Label Content="Должность "  Foreground="LightGray" HorizontalAlignment="Center" Margin="351,386,532,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="117"/>
+        <TextBox  x:Name="Login" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="351,500,349,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox  x:Name="Password" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="351,580,349,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Логин учетной записи "  Foreground="LightGray" HorizontalAlignment="Center" Margin="351,466,430,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="219"/>
+        <Label Content="Пароль учетной записи "  Foreground="LightGray" HorizontalAlignment="Center" Margin="351,546,430,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="219"/>
+        <Button x:Name="Save" Background="LightGray" Content="Сохранить изменения" HorizontalAlignment="Center" Margin="411,0,411,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="Save_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Image x:Name="EmpImage" HorizontalAlignment="Center" Height="230" Margin="116,180,694,0" VerticalAlignment="Top" Width="190"/>
-        <Button x:Name="AddPhoto" Content="+" HorizontalAlignment="Center" Margin="183,431,767,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="AddPhoto_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="AddPhoto" Background="LightGray" Content="+" HorizontalAlignment="Center" Margin="183,431,767,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="AddPhoto_Click" FontFamily="Yu Gothic UI Semibold"/>
 
     </Grid>
 </Page>
