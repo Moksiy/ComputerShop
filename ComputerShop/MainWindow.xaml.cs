@@ -30,8 +30,8 @@ namespace ComputerShop
         public MainWindow()
         {
             InitializeComponent();
-            FrameWindow.Navigate(new AuthorizationPage());
-            //FrameWindow.Navigate(new AddNewEmployeePage());
+            Center.Navigate(new AuthorizationPage());
+            //((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new GeneralDirectorPage());
         }
     }
 }

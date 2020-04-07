@@ -57,6 +57,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Employee\CurrentEmployee.cs" />
+    <Compile Include="Pages\LogoPage.xaml.cs">
+      <DependentUpon>LogoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GeneralDirectorBar.xaml.cs">
+      <DependentUpon>GeneralDirectorBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Collection.cs" />
     <Compile Include="Pages\MoreInfoShopPage.xaml.cs">
       <DependentUpon>MoreInfoShopPage.xaml</DependentUpon>
@@ -135,6 +141,14 @@
     <Compile Include="Pages\UpdateSupplierPage.xaml.cs">
       <DependentUpon>UpdateSupplierPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\LogoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GeneralDirectorBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MoreInfoShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -282,6 +296,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

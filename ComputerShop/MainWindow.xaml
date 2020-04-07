@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerShop"
         mc:Ignorable="d"
-        Title="BUILD YOUR OWN PC" MinHeight="700" MinWidth="1000" Height="700" Width="1000" MaxHeight="1080" MaxWidth="1920" Icon="Images\icon.jpg">
-    <Frame x:Name="FrameWindow" NavigationUIVisibility="Hidden" Height="auto" Width="auto">
-        
-    </Frame>
+        Title="BUILD YOUR OWN PC" MinHeight="700" MinWidth="1200" Height="700" Width="1200" MaxHeight="1080" MaxWidth="1920" Icon="Images\icon.jpg">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="auto" VerticalAlignment="Stretch" Width="230" Margin="0,0,0,0">
+            <Frame x:Name="LeftBar" HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto" Background="#FF323232" NavigationUIVisibility="Hidden">
+
+            </Frame>
+        </Grid>
+        <Grid HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="230,0,0,0">
+            <Frame x:Name="Center" HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto" Background="#FF474747" NavigationUIVisibility="Hidden">
+
+            </Frame>
+        </Grid>
+    </Grid>
 </Window>

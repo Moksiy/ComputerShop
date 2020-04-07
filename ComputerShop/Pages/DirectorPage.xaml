@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="1000"
       Title="DirectorPage">
 
-    <Grid Background="#FFE7E7E7">
+    <Grid>
         <Button x:Name="Logout" Content="logout" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="92" Height="24" FontSize="15" Click="Logout_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Button x:Name="Employees" Content="Сотрудники" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Width="280" Height="52" FontSize="25" Click="Employees_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Button x:Name="Warehouse" Content="Склад" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Width="280" Height="52" FontSize="25" Click="Warehouse_Click" FontFamily="Yu Gothic UI Semibold"/>

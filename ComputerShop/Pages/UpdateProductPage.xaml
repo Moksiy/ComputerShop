@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="1000"
       Title="UpdateProductPage">
 
-    <Grid Background="#FFE7E7E7">
+    <Grid>
         <ListView x:Name="Characts" Foreground="Black" Background="#FFE7E7E7" HorizontalAlignment="Center" Height="270" Margin="675,100,25,0" VerticalAlignment="Top" Width="300">
             <ListView.View>
                 <GridView>
