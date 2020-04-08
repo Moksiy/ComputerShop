@@ -9,10 +9,17 @@
       Title="MessagesPage">
 
     <Grid>
-        <ListView x:Name="List" HorizontalAlignment="Stretch" Height="auto" Margin="20,20,20,50" VerticalAlignment="Stretch" Width="auto">
+        <ListView x:Name="List" Background="LightGray" HorizontalAlignment="Stretch" Height="auto" Margin="20,20,20,50" VerticalAlignment="Stretch" Width="auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Сообщения" Width="900"/>
+                    <GridViewColumn Header="Сообщения" Width="900">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Message}" TextWrapping="Wrap" Margin="5"
+                         Foreground="Black"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

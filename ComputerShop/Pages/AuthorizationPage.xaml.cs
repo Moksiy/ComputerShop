@@ -134,12 +134,14 @@ namespace ComputerShop
 
                         //Директор
                         case "2":
-                            this.NavigationService.Navigate(new DirectorPage());
+                            this.NavigationService.Navigate(new LogoPage());
+                            ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new DirectorBar());
                             break;
 
                         //Логист
                         case "3":
-                            this.NavigationService.Navigate(new LogisticianPage());
+                            this.NavigationService.Navigate(new LogoPage());
+                            ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new LogistBar());
                             break;
 
                         //Рабочий ремонтной площадки

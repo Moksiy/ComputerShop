@@ -49,9 +49,7 @@ namespace ComputerShop
 
                 while (dataReader.Read())
                 {
-                    ListBoxItem item = new ListBoxItem();
-                    item.Content = dataReader[0];
-                    List.Items.Add(item);
+                    List.Items.Add(new MessageElement(dataReader[0].ToString()));
                 }
             }
             catch (SqlException ex)
