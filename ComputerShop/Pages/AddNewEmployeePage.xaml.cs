@@ -116,9 +116,12 @@ namespace ComputerShop
 
                 SqlCommand command = new SqlCommand();
 
+                ComboBoxItem item = new ComboBoxItem();
+                item = (ComboBoxItem)Position.SelectedItem;
+
                 //Запрос
                 command.CommandText = @"INSERT INTO Employee VALUES ((SELECT ISNULL(MAX(Employee.ID),0) FROM Employee) + 1,'"
-                +LastName.Text+"','"+FirstName.Text+"','"+Patronom.Text+"','"+Shop.SelectedIndex+"','"+Position.SelectedIndex+
+                +LastName.Text+"','"+FirstName.Text+"','"+Patronom.Text+"','"+Shop.SelectedIndex+"','"+ item.Tag+
                 "',0)";
 
                 command.Connection = connection;
@@ -136,11 +139,7 @@ namespace ComputerShop
                 //В любом случае закрываем подключение
                 connection.Close();
                 AddUser();
-            }
-
-            //Если изображение загружено, то вызываем метод добавления изображения в бд
-            if (!String.IsNullOrEmpty(FilePath))
-                AddImage();
+            }            
         }
 
         /// <summary>
@@ -221,7 +220,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM Positions WHERE ID > 1";
+                command.CommandText = "SELECT * FROM Positions WHERE ID > 0";
 
                 command.Connection = connection;
 
@@ -282,6 +281,7 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
+                this.NavigationService.Navigate(new EmployeesPage());
             }
         }
 
@@ -318,6 +318,11 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
+                //Если изображение загружено, то вызываем метод добавления изображения в бд
+                if (!String.IsNullOrEmpty(FilePath))
+                    AddImage();
+                else
+                    this.NavigationService.Navigate(new EmployeesPage());
             }
         }
     }

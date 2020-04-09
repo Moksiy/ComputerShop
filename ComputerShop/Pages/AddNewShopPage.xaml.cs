@@ -150,7 +150,7 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
-                this.NavigationService.GoBack();
+                this.NavigationService.Navigate(new ShopsPage());
             }
         }
     }

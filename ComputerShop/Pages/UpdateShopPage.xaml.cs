@@ -113,7 +113,7 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
-                this.NavigationService.GoBack();
+                this.NavigationService.Navigate(new ShopsPage());
             }
         }
 
@@ -146,9 +146,13 @@ namespace ComputerShop
                     item.Content = dataReader[0].ToString() + " " +
                     dataReader[1].ToString() + " " + dataReader[2].ToString();
                     item.Tag = Convert.ToInt32(dataReader[3]);
-                    Director.Items.Add(item);
-                    if (Convert.ToInt32(item.Tag) == DirectorID)
-                        Director.SelectedItem = item;
+                    Director.Items.Add(item);                    
+                }
+
+                foreach(ComboBoxItem c in Director.Items)
+                {
+                    if (Convert.ToInt32(c.Tag) == DirectorID)
+                        Director.SelectedItem = c;
                 }
             }
             catch (SqlException ex)
@@ -180,7 +184,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM Shops";
+                command.CommandText = "SELECT * FROM Shops WHERE ID = "+CurrentShop.ID;
 
                 command.Connection = connection;
 

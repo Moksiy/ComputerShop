@@ -304,6 +304,7 @@ namespace ComputerShop
                 {
                     //В любом случае закрываем подключение
                     connection.Close();
+                    Characteristics.Clear();
                 }
             }
 
