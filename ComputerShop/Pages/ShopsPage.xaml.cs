@@ -135,7 +135,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new WarehousePage());
         }
     }
 }

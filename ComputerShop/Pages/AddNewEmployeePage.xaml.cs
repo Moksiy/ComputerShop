@@ -32,7 +32,7 @@ namespace ComputerShop
         /// <summary>
         /// Изображение в битном представлении
         /// </summary>
-        public static byte[] ImageData { get; set; } 
+        public static byte[] ImageData { get; set; }
 
         /// <summary>
         /// путь к конвертируемому файлу
@@ -86,6 +86,11 @@ namespace ComputerShop
             }
         }
 
+        private void CheckDirector()
+        {
+
+        }
+
         /// <summary>
         /// Сброс выделения элементов
         /// </summary>
@@ -121,7 +126,7 @@ namespace ComputerShop
 
                 //Запрос
                 command.CommandText = @"INSERT INTO Employee VALUES ((SELECT ISNULL(MAX(Employee.ID),0) FROM Employee) + 1,'"
-                +LastName.Text+"','"+FirstName.Text+"','"+Patronom.Text+"','"+Shop.SelectedIndex+"','"+ item.Tag+
+                + LastName.Text + "','" + FirstName.Text + "','" + Patronom.Text + "','" + Shop.SelectedIndex + "','" + item.Tag +
                 "',0)";
 
                 command.Connection = connection;
@@ -139,7 +144,7 @@ namespace ComputerShop
                 //В любом случае закрываем подключение
                 connection.Close();
                 AddUser();
-            }            
+            }
         }
 
         /// <summary>
@@ -302,7 +307,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "INSERT INTO Users VALUES('"+Login.Text+"','"+Password.Text+"',(SELECT MAX(Employee.ID) FROM Employee))";
+                command.CommandText = "INSERT INTO Users VALUES('" + Login.Text + "','" + Password.Text + "',(SELECT MAX(Employee.ID) FROM Employee))";
 
                 command.Connection = connection;
 

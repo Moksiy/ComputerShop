@@ -36,31 +36,61 @@ namespace ComputerShop
             this.NavigationService.Navigate(new StartBar());
         }
 
+        /// <summary>
+        /// Сотрудники
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Employee_Selected(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Склад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Warehouse_Selected(object sender, RoutedEventArgs e)
         {
-
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new WarehouseDirectorPage());
         }
 
+        /// <summary>
+        /// Поставки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Shipments_Selected(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Покупки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Buyes_Selected(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Ремонты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Repairs_Selected(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Сборки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Builds_Selected(object sender, RoutedEventArgs e)
         {
 

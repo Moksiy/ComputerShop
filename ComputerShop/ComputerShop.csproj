@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\AddNewShipmentPage.xaml.cs">
+      <DependentUpon>AddNewShipmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\MessageElement.cs" />
     <Compile Include="Pages\DirectorBar.xaml.cs">
       <DependentUpon>DirectorBar.xaml</DependentUpon>
@@ -132,6 +135,12 @@
     <Compile Include="Pages\ShipmentsPage.xaml.cs">
       <DependentUpon>ShipmentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WarehouseDirectorPage.xaml.cs">
+      <DependentUpon>WarehouseDirectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WarehousePage.xaml.cs">
+      <DependentUpon>WarehousePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shipments\ShipmentElement.cs" />
     <Compile Include="Shipments\ShipmentsElement.cs" />
     <Compile Include="Shops\CurrentShop.cs" />
@@ -151,6 +160,11 @@
     <Compile Include="Pages\UpdateSupplierPage.xaml.cs">
       <DependentUpon>UpdateSupplierPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Warehouses\WarehouseElement.cs" />
+    <Page Include="Pages\AddNewShipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DirectorBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -277,6 +291,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\UpdateSupplierPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WarehouseDirectorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\WarehousePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -82,6 +82,46 @@ namespace ComputerShop
         }
 
         /// <summary>
+        /// Получаем ID магазина директора
+        /// </summary>
+        private async void GetDirectorShop()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT Shops.ID FROM Shops WHERE DirectorID = "+ User.ID;
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    CurrentShop.ID = Convert.ToInt32(dataReader[0]);
+                }
+            }
+            catch (SqlException ex)
+            {
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+        }
+
+        /// <summary>
         /// Проверка логина и пароля в бд
         /// </summary>
         private async void CheckUser()
@@ -134,6 +174,7 @@ namespace ComputerShop
 
                         //Директор
                         case "2":
+                            GetDirectorShop();
                             this.NavigationService.Navigate(new LogoPage());
                             ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new DirectorBar());
                             break;
@@ -151,7 +192,7 @@ namespace ComputerShop
 
                         //Продавец-консультант
                         case "5":
-                            //this.NavigationService.Navigate(new AdminPage());
+                            //this.NavigationService.Navigate(new ());
                             break;
                     }
                 }

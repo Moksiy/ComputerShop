@@ -20,6 +20,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="AddShipment" Background="LightGray" Content="Новая поставка" HorizontalAlignment="Center" Margin="0,0,0,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="AddShipment_Click" FontFamily="Yu Gothic UI Semibold"/>
 
     </Grid>
 </Page>

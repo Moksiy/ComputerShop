@@ -17,14 +17,14 @@ using System.Data.SqlClient;
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для ShipmentsPage.xaml
+    /// Логика взаимодействия для WarehousePage.xaml
     /// </summary>
-    public partial class ShipmentsPage : Page
+    public partial class WarehousePage : Page
     {
-        public ShipmentsPage()
+        public WarehousePage()
         {
             InitializeComponent();
-            GetShipments();
+            GetProducts();
         }
 
         /// <summary>
@@ -32,12 +32,15 @@ namespace ComputerShop
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            this.NavigationService.Navigate(new ShopsPage());
         }
 
-        private async void GetShipments()
+        /// <summary>
+        /// Товары на складе
+        /// </summary>
+        private async void GetProducts()
         {
             SqlConnection connection = new SqlConnection();
 
@@ -51,7 +54,11 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT * FROM GetShipments";
+                command.CommandText = "SELECT        dbo.Images.ImageData, dbo.Products.ProductName, dbo.Products.Artikul, dbo.Warehouse.Quantity " +
+                    "FROM            dbo.Warehouse INNER JOIN " +
+                    "                         dbo.Products ON dbo.Warehouse.ProductID = dbo.Products.ID INNER JOIN " +
+                    "                         dbo.Images ON dbo.Products.ID = dbo.Images.ID " +
+                    "WHERE        (dbo.Warehouse.ID = "+CurrentShop.ID+")";
 
                 command.Connection = connection;
 
@@ -59,17 +66,12 @@ namespace ComputerShop
 
                 while (dataReader.Read())
                 {
-                    ListViewItem item = new ListViewItem();
-                    item.Tag = dataReader[0];
-                    item.Content = (new ShipmentsElement(Convert.ToInt32(dataReader[0]),
-                    dataReader[1].ToString(), Convert.ToInt32(dataReader[2]),
-                    dataReader[3].ToString(), Convert.ToDateTime(dataReader[4]), dataReader[5].ToString()));
-                    item.BorderBrush = Brushes.LightGray;
-                    ShipmentsList.Items.Add(item);
+                    ProductList.Items.Add(new WarehouseElement((byte[])dataReader[0], dataReader[1].ToString(), dataReader[2].ToString(), Convert.ToInt32(dataReader[3])));
                 }
             }
             catch (SqlException ex)
             {
+                connection.Close();
                 SynchronizationErrors.New(ex.ToString());
                 MessageBox.Show(ex.ToString());
             }
@@ -78,16 +80,6 @@ namespace ComputerShop
                 //В любом случае закрываем подключение
                 connection.Close();
             }
-        }
-
-        /// <summary>
-        /// Добавить новую поставку
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddShipment_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new AddNewShipmentPage());
         }
     }
 }
