@@ -56,6 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clients\ClientElement.cs" />
+    <Compile Include="Pages\AddNewClientPage.xaml.cs">
+      <DependentUpon>AddNewClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ClientsPage.xaml.cs">
+      <DependentUpon>ClientsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddNewShipmentPage.xaml.cs">
       <DependentUpon>AddNewShipmentPage.xaml</DependentUpon>
     </Compile>
@@ -141,8 +148,13 @@
     <Compile Include="Pages\WarehousePage.xaml.cs">
       <DependentUpon>WarehousePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Products\Product.cs" />
+    <Compile Include="Products\ShipmentProductsList.cs" />
     <Compile Include="Shipments\ShipmentElement.cs" />
+    <Compile Include="Shipments\ShipmentProductElement.cs" />
     <Compile Include="Shipments\ShipmentsElement.cs" />
+    <Compile Include="Shipments\ShipmentsList.cs" />
+    <Compile Include="Shipments\ShipmentsListElement.cs" />
     <Compile Include="Shops\CurrentShop.cs" />
     <Compile Include="Shops\ShopElement.cs" />
     <Compile Include="Shops\ShopsList.cs" />
@@ -161,6 +173,14 @@
       <DependentUpon>UpdateSupplierPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Warehouses\WarehouseElement.cs" />
+    <Page Include="Pages\AddNewClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ClientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddNewShipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

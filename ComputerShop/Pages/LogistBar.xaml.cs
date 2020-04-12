@@ -32,8 +32,12 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Exit_Selected(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new AuthorizationPage());
-            this.NavigationService.Navigate(new StartBar());
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Вы уверены, что хотите выйти из учетной записи?", "Выход из учетной записи", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new AuthorizationPage());
+                this.NavigationService.Navigate(new StartBar());
+            }
         }
 
         /// <summary>

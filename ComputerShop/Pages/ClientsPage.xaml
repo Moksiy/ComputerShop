@@ -1,0 +1,28 @@
+﻿<Page x:Class="ComputerShop.ClientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="950"
+      Title="ClientsPage">
+
+    <Grid>
+        <ListView x:Name="Clients" FontSize="14" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="900" MaxWidth="1900" Margin="20,20,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия" Width="200" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Имя" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Отчество" Width="200" DisplayMemberBinding="{Binding Patronom}"/>
+                    <GridViewColumn Header="Email" Width="240" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="Номер телефона" Width="200" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Бонусная карта" Width="150" DisplayMemberBinding="{Binding Card}"/>
+                    <GridViewColumn Header="Бонусная программа" Width="200" DisplayMemberBinding="{Binding Bonus}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="AddClient" Background="LightGray" Content="Добавить клиента" HorizontalAlignment="Center" Margin="386,0,386,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="AddClient_Click" FontFamily="Yu Gothic UI Semibold"/>
+
+    </Grid>
+</Page>

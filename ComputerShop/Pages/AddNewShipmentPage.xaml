@@ -9,8 +9,8 @@
       Title="AddNewShipmentPage">
 
     <Grid>
-        <Label Content="Склад" Foreground="LightGray" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <ListView x:Name="Charactes" Background="LightGray" Foreground="Black" HorizontalAlignment="Center" Margin="0,110,0,270" FontSize="18" VerticalAlignment="Stretch" Width="700">
+        <Label Content="Склад" Foreground="LightGray" HorizontalAlignment="Center" Margin="228,36,660,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
+        <ListView x:Name="ShipmentProducts" Background="LightGray" Foreground="Black" HorizontalAlignment="Center" Margin="125,168,125,0" FontSize="18" VerticalAlignment="Top" Width="700" Height="300">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="" Width="580" DisplayMemberBinding="{Binding Product}"/>
@@ -21,7 +21,20 @@
 
         </ListView>
         <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <ComboBox x:Name="Shop" Background="LightGray" HorizontalAlignment="Center" Margin="0,59,0,0" VerticalAlignment="Top" Width="350" Height="30"/>
+        <ComboBox x:Name="Shop" Background="LightGray" HorizontalAlignment="Center" Margin="300,40,300,0" VerticalAlignment="Top" Width="350" Height="30" FontSize="18"/>
+        <ComboBox x:Name="Products" Background="LightGray" HorizontalAlignment="Center" Margin="125,512,309,0" VerticalAlignment="Top" Width="516" Height="30" FontSize="18"/>
+        <Label Content="Товар " Foreground="LightGray" HorizontalAlignment="Center" Margin="125,473,723,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
+        <TextBox  x:Name="Quan" Background="LightGray" HorizontalAlignment="Center" Height="30" Margin="668,512,200,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82" FontSize="20" PreviewTextInput="Quan_PreviewTextInput" HorizontalContentAlignment="Center" MaxLength="4"/>
+        <Label Content="Кол-во" Foreground="LightGray" HorizontalAlignment="Center" Margin="664,478,184,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
+        <Button x:Name="AddPhoto" Background="LightGray" Content="+" HorizontalAlignment="Center" Margin="775,512,125,0" VerticalAlignment="Top" Width="50" Height="30" FontSize="15" FontFamily="Yu Gothic UI Semibold" Click="AddPhoto_Click"/>
+        <TextBox  x:Name="SearchText" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="125,570,444,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="381" FontSize="20"/>
+        <Button x:Name="Search" Background="LightGray" Content="Поиск" HorizontalAlignment="Center" Margin="536,568,309,0" VerticalAlignment="Top" Width="105" Height="30" FontSize="18" FontFamily="Yu Gothic UI Semibold" Click="Search_Click"/>
+        <Button x:Name="AddShipment" Background="LightGray" Content="Добавить поставку" HorizontalAlignment="Center" Margin="411,0,361,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="AddShipment_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content="" Foreground="Red" x:Name="ErrorShop" HorizontalAlignment="Center" Margin="0,1,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" HorizontalContentAlignment="Center"/>
+        <Label Content="" Foreground="Red" x:Name="ErrorProducts" HorizontalAlignment="Center" Margin="0,473,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="Supplier" Background="LightGray" HorizontalAlignment="Center" Margin="300,124,300,0" VerticalAlignment="Top" Width="350" Height="30" FontSize="18"/>
+        <Label Content="Поставщик" Foreground="LightGray" HorizontalAlignment="Center" Margin="181,120,655,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Height="34" Width="114"/>
+        <Label Content="" Foreground="Red" x:Name="ErrorSupplier" HorizontalAlignment="Center" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Page>
