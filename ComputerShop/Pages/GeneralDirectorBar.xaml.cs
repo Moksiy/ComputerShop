@@ -82,17 +82,17 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Buyes_Selected(object sender, RoutedEventArgs e)
         {
-            //((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate();
+            
         }
 
         /// <summary>
-        /// Заказы
+        /// Сборки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Orders_Selected(object sender, RoutedEventArgs e)
         {
-            //
+            
         }
 
         /// <summary>
@@ -118,6 +118,16 @@ namespace ComputerShop
                 ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new AuthorizationPage());
                 this.NavigationService.Navigate(new StartBar());
             }
+        }
+
+        /// <summary>
+        /// Ремонты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Repairs_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

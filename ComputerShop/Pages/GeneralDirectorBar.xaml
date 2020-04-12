@@ -106,7 +106,12 @@
             </ListBoxItem>
             <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Orders_Selected" x:Name="Orders">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Заказы</TextBlock>
+                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Сборки</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Repairs_Selected" x:Name="Repairs">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Ремонты</TextBlock>
                 </StackPanel>
             </ListBoxItem>
             <ListBoxItem Margin="0,7,0,0" Height="50" Selected="Clients_Selected" x:Name="Clients">
@@ -114,7 +119,7 @@
                     <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Клиенты</TextBlock>
                 </StackPanel>
             </ListBoxItem>
-            <ListBoxItem Margin="0,150,0,0" Height="50" Selected="Exit_Selected" x:Name="Exit">
+            <ListBoxItem Margin="0,80,0,0" Height="50" Selected="Exit_Selected" x:Name="Exit">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock TextAlignment="Center" Width="210" FontSize="25" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray">Выход</TextBlock>
                 </StackPanel>
