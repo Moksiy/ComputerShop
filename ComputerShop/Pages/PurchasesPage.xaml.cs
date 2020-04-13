@@ -46,7 +46,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT        dbo.Purchases.ID, dbo.Clients.LastName, dbo.Clients.Name, dbo.Clients.Patronymic, dbo.Shops.ShopName, dbo.Employee.LastName AS Expr1, dbo.Employee.Name AS Expr2, dbo.Employee.Patronymic AS Expr3, dbo.Purchases.Date, dbo.Purchases.Cost " +
+                command.CommandText = "SELECT        dbo.Purchases.ID, dbo.Clients.LastName, dbo.Clients.Name, dbo.Clients.Patronymic, dbo.Employee.LastName AS Expr1, dbo.Employee.Name AS Expr2, dbo.Employee.Patronymic AS Expr3, dbo.Shops.ShopName, dbo.Purchases.Date, dbo.Purchases.Cost " +
                                       "FROM            dbo.Clients INNER JOIN" +
                                       "                         dbo.Purchases ON dbo.Clients.ID = dbo.Purchases.ClientID INNER JOIN " +
                                       "                         dbo.Employee ON dbo.Purchases.EmployeeID = dbo.Employee.ID INNER JOIN " +
