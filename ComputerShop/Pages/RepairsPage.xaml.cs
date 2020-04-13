@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ComputerShop
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeMoreInfoPage.xaml
+    /// Логика взаимодействия для RepairsPage.xaml
     /// </summary>
-    public partial class EmployeeMoreInfoPage : Page
+    public partial class RepairsPage : Page
     {
-        public EmployeeMoreInfoPage()
+        public RepairsPage()
         {
             InitializeComponent();
         }

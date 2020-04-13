@@ -85,6 +85,9 @@ namespace ComputerShop
             }
         }
 
+        /// <summary>
+        /// Получаем товары из БД
+        /// </summary>
         private async void GetProducts()
         {
             SqlConnection connection = new SqlConnection();
@@ -127,6 +130,11 @@ namespace ComputerShop
             }
         }
 
+        /// <summary>
+        /// Разрешаем вводить только цифры в поле количества
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Quan_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !(Char.IsDigit(e.Text, 0));
@@ -165,6 +173,9 @@ namespace ComputerShop
             }
         }
 
+        /// <summary>
+        /// SBROS
+        /// </summary>
         private void ResetErrors()
         {
             ErrorProducts.Content = "";

@@ -30,17 +30,6 @@ namespace ComputerShop
         public static byte[] DefaultImage { get; set; }
 
         /// <summary>
-        /// На предыдущую страницу
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.GoBack();
-        }
-
-
-        /// <summary>
         /// Уволить
         /// </summary>
         /// <param name="sender"></param>

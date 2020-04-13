@@ -56,6 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clients\Clients.cs" />
+    <Compile Include="Pages\AddNewPurchase.xaml.cs">
+      <DependentUpon>AddNewPurchase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BuildingsPage.xaml.cs">
+      <DependentUpon>BuildingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Clients\ClientElement.cs" />
     <Compile Include="Pages\AddNewClientPage.xaml.cs">
       <DependentUpon>AddNewClientPage.xaml</DependentUpon>
@@ -78,6 +85,12 @@
     </Compile>
     <Compile Include="Pages\MessagesPage.xaml.cs">
       <DependentUpon>MessagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsultantBar.xaml.cs">
+      <DependentUpon>ConsultantBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RepairmanBar.xaml.cs">
+      <DependentUpon>RepairmanBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StartBar.xaml.cs">
       <DependentUpon>StartBar.xaml</DependentUpon>
@@ -103,9 +116,6 @@
       <DependentUpon>AddNewShopPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employee\EmployeeElement.cs" />
-    <Compile Include="Pages\EmployeeMoreInfoPage.xaml.cs">
-      <DependentUpon>EmployeeMoreInfoPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AddNewEmployeePage.xaml.cs">
       <DependentUpon>AddNewEmployeePage.xaml</DependentUpon>
     </Compile>
@@ -130,9 +140,6 @@
     </Compile>
     <Compile Include="Authorization\CaptchaBuild.cs" />
     <Compile Include="Data\User.cs" />
-    <Compile Include="Pages\RepairmanPage.xaml.cs">
-      <DependentUpon>RepairmanPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ShopsPage.xaml.cs">
       <DependentUpon>ShopsPage.xaml</DependentUpon>
     </Compile>
@@ -150,6 +157,15 @@
     </Compile>
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ShipmentProductsList.cs" />
+    <Compile Include="Pages\PurchasesPage.xaml.cs">
+      <DependentUpon>PurchasesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Purchases\Costs.cs" />
+    <Compile Include="Purchases\ProductListElement.cs" />
+    <Compile Include="Purchases\PurchasesElement.cs" />
+    <Compile Include="Pages\RepairsPage.xaml.cs">
+      <DependentUpon>RepairsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shipments\ShipmentElement.cs" />
     <Compile Include="Shipments\ShipmentProductElement.cs" />
     <Compile Include="Shipments\ShipmentsElement.cs" />
@@ -173,6 +189,14 @@
       <DependentUpon>UpdateSupplierPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Warehouses\WarehouseElement.cs" />
+    <Page Include="Pages\AddNewPurchase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BuildingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddNewClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +225,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ConsultantBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\RepairmanBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\StartBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -226,10 +258,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddNewShopPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\EmployeeMoreInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -278,10 +306,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\RepairmanPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\ProductsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -319,6 +343,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\WarehousePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PurchasesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RepairsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

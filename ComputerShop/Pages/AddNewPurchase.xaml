@@ -1,0 +1,35 @@
+﻿<Page x:Class="ComputerShop.AddNewPurchase"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Height="auto" Width="auto" MinHeight="700" MinWidth="950"
+      Title="AddNewPurchase">
+
+    <Grid>
+        <TextBox  x:Name="Search" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="325,60,325,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <Label Content="Номер телефона клиента" HorizontalAlignment="Center" Margin="359,26,360,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray" Width="231"/>
+        <ComboBox x:Name="Clients"  Background="LightGray" HorizontalAlignment="Center" Margin="326,125,326,0" VerticalAlignment="Top" Width="298" Height="30"/>
+        <Button x:Name="SearchButton" Content="🔍" HorizontalAlignment="Center" Margin="643,60,273,0" VerticalAlignment="Top" Width="34" Height="28" FontSize="15" Click="Search_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <ListView x:Name="ShipmentProducts" Background="LightGray" Foreground="Black" HorizontalAlignment="Center" Margin="125,160,125,0" FontSize="18" VerticalAlignment="Top" Width="700" Height="300">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="" Width="580" DisplayMemberBinding="{Binding Product}"/>
+                    <GridViewColumn Header="" Width="100" DisplayMemberBinding="{Binding Quan}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ComboBox x:Name="Products" Background="LightGray" HorizontalAlignment="Center" Margin="125,504,309,0" VerticalAlignment="Top" Width="516" Height="30" FontSize="18"/>
+        <Label Content="Товар " Foreground="LightGray" HorizontalAlignment="Center" Margin="125,465,723,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
+        <TextBox  x:Name="Quan" Background="LightGray" HorizontalAlignment="Center" Height="30" Margin="668,504,200,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82" FontSize="20" PreviewTextInput="Quan_PreviewTextInput" HorizontalContentAlignment="Center" MaxLength="4"/>
+        <Label Content="Кол-во" Foreground="LightGray" HorizontalAlignment="Center" Margin="664,470,184,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
+        <Button x:Name="AddProduct" Background="LightGray" Content="+" HorizontalAlignment="Center" Margin="775,504,125,0" VerticalAlignment="Top" Width="50" Height="30" FontSize="15" FontFamily="Yu Gothic UI Semibold" Click="AddProduct_Click"/>
+        <TextBox  x:Name="SearchText" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="125,562,444,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="381" FontSize="20"/>
+        <Button x:Name="SearchProduct" Background="LightGray" Content="Поиск" HorizontalAlignment="Center" Margin="536,560,309,0" VerticalAlignment="Top" Width="105" Height="30" FontSize="18" FontFamily="Yu Gothic UI Semibold" Click="SearchProduct_Click"/>
+        <Label Content="" x:Name="ErrorClient" Foreground="Red" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" HorizontalContentAlignment="Center"/>
+        <Label Content="" x:Name="ErrorProducts" Foreground="Red" HorizontalAlignment="Center" Margin="389,465,551,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" HorizontalContentAlignment="Center"/>
+        <Button x:Name="AddShipment" Background="LightGray" Content="Добавить покупку" HorizontalAlignment="Center" Margin="411,0,361,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="AddShipment_Click" FontFamily="Yu Gothic UI Semibold"/>
+    </Grid>
+</Page>

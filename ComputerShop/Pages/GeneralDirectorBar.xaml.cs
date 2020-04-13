@@ -82,7 +82,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Buyes_Selected(object sender, RoutedEventArgs e)
         {
-            
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new PurchasesPage());
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Orders_Selected(object sender, RoutedEventArgs e)
         {
-            
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new BuildingsPage());
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Repairs_Selected(object sender, RoutedEventArgs e)
         {
-
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new RepairsPage());
         }
     }
 }

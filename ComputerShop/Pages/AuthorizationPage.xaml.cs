@@ -122,6 +122,46 @@ namespace ComputerShop
         }
 
         /// <summary>
+        /// Получаем место работы сотрудника
+        /// </summary>
+        private async void GetShop()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT ShopID FROM Employee WHERE ID = " + User.ID;
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    CurrentShop.ID = Convert.ToInt32(dataReader[0]);
+                }
+            }
+            catch (SqlException ex)
+            {
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+            }
+        }
+
+        /// <summary>
         /// Проверка логина и пароля в бд
         /// </summary>
         private async void CheckUser()
@@ -187,12 +227,16 @@ namespace ComputerShop
 
                         //Рабочий ремонтной площадки
                         case "4":
-                            this.NavigationService.Navigate(new RepairmanPage());
+                            GetShop();
+                            this.NavigationService.Navigate(new LogoPage());
+                            ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new RepairmanBar());
                             break;
 
                         //Продавец-консультант
                         case "5":
-                            //this.NavigationService.Navigate(new ());
+                            GetShop();
+                            this.NavigationService.Navigate(new LogoPage());
+                            ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new ConsultantBar());
                             break;
                     }
                 }
