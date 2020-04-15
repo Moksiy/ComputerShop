@@ -9,15 +9,19 @@
       Title="BuildingsPage">
 
     <Grid>
-        <ListView x:Name="Clients" FontSize="14" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="900" MaxWidth="1900" Margin="20,20,20,80" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
+        <ListView x:Name="Buildings" FontSize="14" Background="#FFE7E7E7" Foreground="Black" HorizontalAlignment="Stretch" Height="auto" MinHeight="560" MaxHeight="1000" Width="auto" MinWidth="900" MaxWidth="1900" Margin="20,20,20,60" VerticalAlignment="Stretch" FontFamily="Bahnschrift Light">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Клиент" Width="350" DisplayMemberBinding="{Binding Client}"/>
-                    <GridViewColumn Header="Магазин" Width="250" DisplayMemberBinding="{Binding Shop}"/>
-                    <GridViewColumn Header="Сотрудник" Width="350" DisplayMemberBinding="{Binding Employee}"/>
+                    <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Магазин" Width="180" DisplayMemberBinding="{Binding Shop}"/>
+                    <GridViewColumn Header="Клиент" Width="180" DisplayMemberBinding="{Binding Client}"/>
+                    <GridViewColumn Header="Сотрудник" Width="180" DisplayMemberBinding="{Binding Employee}"/>
+                    <GridViewColumn Header="Статус" Width="100" DisplayMemberBinding="{Binding Status}"/>
+                    <GridViewColumn Header="Стоимость" Width="100" DisplayMemberBinding="{Binding Total}"/>
                     <GridViewColumn Header="Дата" Width="150" DisplayMemberBinding="{Binding Date}"/>
-                    <GridViewColumn Header="Стоимость" Width="100" DisplayMemberBinding="{Binding Cost}"/>
-                    <GridViewColumn Header="Товары" Width="450" DisplayMemberBinding="{Binding ProductCart}"/>
+                    <GridViewColumn Header="Завершено" Width="150" DisplayMemberBinding="{Binding EndingDate}"/>
+                    <GridViewColumn Header="Гарантия" Width="100" DisplayMemberBinding="{Binding Guarantee}"/>
+                    <GridViewColumn Header="Товары" Width="450" DisplayMemberBinding="{Binding Cart}"/>
                 </GridView>
             </ListView.View>
         </ListView>

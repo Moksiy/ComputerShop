@@ -34,8 +34,6 @@ namespace ComputerShop
         {
             SqlConnection connection = new SqlConnection();
 
-            SqlConnection connection2 = new SqlConnection();
-
             try
             {
                 connection.ConnectionString = MainWindow.ConnectionSrting;
@@ -50,7 +48,9 @@ namespace ComputerShop
                                       "FROM            dbo.Clients INNER JOIN" +
                                       "                         dbo.Purchases ON dbo.Clients.ID = dbo.Purchases.ClientID INNER JOIN " +
                                       "                         dbo.Employee ON dbo.Purchases.EmployeeID = dbo.Employee.ID INNER JOIN " +
-                                      "                         dbo.Shops ON dbo.Purchases.ShopID = dbo.Shops.ID";
+                                      "                         dbo.Shops ON dbo.Purchases.ShopID = dbo.Shops.ID ";
+                if (User.RoleID == "2" || User.RoleID == "5")
+                    command.CommandText += "WHERE dbo.Shops.ID = " + CurrentShop.ID;
 
                 command.Connection = connection;
 

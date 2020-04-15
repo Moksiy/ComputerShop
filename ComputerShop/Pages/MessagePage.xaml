@@ -10,7 +10,7 @@
 
     <Grid>
         <TextBox x:Name="Message" HorizontalAlignment="Stretch" Height="auto" Margin="80,140,80,100" TextWrapping="Wrap" Background="{x:Null}" Foreground="LightGray" FontSize="23" BorderBrush="LightGray" Text="" VerticalAlignment="Stretch" Width="auto"/>
-        <Button Content="💌" FontSize="30" HorizontalAlignment="Center" Margin="445,610,445,0" VerticalAlignment="Top" Width="60" Height="45" Click="Button_Click"/>
+        <Button Content="💌" FontSize="30" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="60" Height="45" Click="Button_Click"/>
         <Label Content="BUILD YOUR OWN PC" HorizontalAlignment="Center" Margin="276,32,226,0" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe UI Black" Height="72" Width="448" Foreground="#FF0069FF" Background="#00000000"/>
 
     </Grid>

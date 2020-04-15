@@ -62,7 +62,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void AddBuilding_Selected(object sender, RoutedEventArgs e)
         {
-
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new AddNewBuilding());
         }
 
         /// <summary>

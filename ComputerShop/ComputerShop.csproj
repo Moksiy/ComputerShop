@@ -56,6 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Buildings\CurrentBuilding.cs" />
+    <Compile Include="Pages\AddNewBuilding.xaml.cs">
+      <DependentUpon>AddNewBuilding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Buildings\BuildingElement.cs" />
     <Compile Include="Clients\Clients.cs" />
     <Compile Include="Pages\AddNewPurchase.xaml.cs">
       <DependentUpon>AddNewPurchase.xaml</DependentUpon>
@@ -77,6 +82,9 @@
     <Compile Include="Pages\DirectorBar.xaml.cs">
       <DependentUpon>DirectorBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EmployeesPage2.xaml.cs">
+      <DependentUpon>EmployeesPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LogistBar.xaml.cs">
       <DependentUpon>LogistBar.xaml</DependentUpon>
     </Compile>
@@ -91,6 +99,9 @@
     </Compile>
     <Compile Include="Pages\RepairmanBar.xaml.cs">
       <DependentUpon>RepairmanBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShipmentsPage2.xaml.cs">
+      <DependentUpon>ShipmentsPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StartBar.xaml.cs">
       <DependentUpon>StartBar.xaml</DependentUpon>
@@ -189,6 +200,10 @@
       <DependentUpon>UpdateSupplierPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Warehouses\WarehouseElement.cs" />
+    <Page Include="Pages\AddNewBuilding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddNewPurchase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\EmployeesPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\LogistBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -230,6 +249,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\RepairmanBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ShipmentsPage2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
