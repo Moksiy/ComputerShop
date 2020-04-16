@@ -91,7 +91,7 @@ namespace ComputerShop
         private void ListViewItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             ListViewItem item = sender as ListViewItem;
-            CurrentBuilding.ID = item.Tag.ToString();
+            CurrentRepair.ID = item.Tag.ToString();
         }
 
         private async void CheckStatus()
@@ -108,7 +108,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "SELECT BuildingStatus FROM Buildings WHERE ID = " + CurrentBuilding.ID;
+                command.CommandText = "SELECT Status FROM Repairs WHERE ID = " + CurrentRepair.ID;
 
                 command.Connection = connection;
 

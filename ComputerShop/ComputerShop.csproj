@@ -57,6 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Buildings\CurrentBuilding.cs" />
+    <Compile Include="Pages\AddNewRepair.xaml.cs">
+      <DependentUpon>AddNewRepair.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddNewBuilding.xaml.cs">
       <DependentUpon>AddNewBuilding.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,10 @@
       <DependentUpon>UpdateBuilding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Warehouses\WarehouseElement.cs" />
+    <Page Include="Pages\AddNewRepair.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\AddNewBuilding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
