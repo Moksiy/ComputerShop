@@ -87,7 +87,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Repairs_Selected(object sender, RoutedEventArgs e)
         {
-
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new RepairsPage());
         }
 
         /// <summary>

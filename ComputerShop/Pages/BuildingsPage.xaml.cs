@@ -66,7 +66,7 @@ namespace ComputerShop
                     list.Add(new BuildingElement(dataReader[0].ToString(), dataReader[1].ToString(),
                         dataReader[2].ToString() + " " + dataReader[3].ToString() + "." + dataReader[4].ToString() + ".",
                         dataReader[5].ToString() + " " + dataReader[6].ToString() + "." + dataReader[7].ToString() + ".",
-                        dataReader[8].ToString(), dataReader[10].ToString(), dataReader[11] is DBNull ? "-":dataReader[11].ToString(),
+                        dataReader[8].ToString(), dataReader[10].ToString(), dataReader[11] is DBNull ? "-" : dataReader[11].ToString(),
                         dataReader[12] is DBNull ? "-" : dataReader[12].ToString(), dataReader[9].ToString(), ""));
                 }
             }
@@ -81,6 +81,65 @@ namespace ComputerShop
                 //В любом случае закрываем подключение
                 connection.Close();
                 GetCart();
+            }
+        }
+
+        /// <summary>
+        /// Обработчик нажатия правой кнопкой мыши для вызова контекстного меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListViewItem_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem item = sender as ListViewItem;
+            CurrentBuilding.ID = item.Tag.ToString();
+        }
+
+        private async void CheckStatus()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "SELECT BuildingStatus FROM Buildings WHERE ID = " + CurrentBuilding.ID;
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    switch (dataReader[0].ToString())
+                    {
+                        case "0":
+                        case "1":
+                        case "2":
+                            this.NavigationService.Navigate(new UpdateBuilding());
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
             }
         }
 
@@ -117,7 +176,27 @@ namespace ComputerShop
                         item.Cart += dataReader[0].ToString() + "   :  " + dataReader[1].ToString() + "\n";
                     }
 
-                    Buildings.Items.Add(item);
+                    ListViewItem build = new ListViewItem();
+                    build.Content = item;
+                    build.Tag = item.ID;
+
+                    switch (item.Status)
+                    {
+                        case "Принято":
+                            build.Background = Brushes.LightYellow;
+                            break;
+                        case "Отмена":
+                            build.Background = Brushes.IndianRed;
+                            break;
+                        case "Готово":
+                            build.Background = Brushes.LightGreen;
+                            break;
+                        default:
+                            build.Background = Brushes.PaleTurquoise;
+                            break;
+                    }
+
+                    Buildings.Items.Add(build);
 
                     connection.Close();
                 }
@@ -134,6 +213,16 @@ namespace ComputerShop
                 connection.Close();
             }
 
+        }
+
+        /// <summary>
+        /// Редактирование сборки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            CheckStatus();            
         }
     }
 }

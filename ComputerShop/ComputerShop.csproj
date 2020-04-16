@@ -160,6 +160,9 @@
     <Compile Include="Pages\ShipmentsPage.xaml.cs">
       <DependentUpon>ShipmentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UpdateRepair.xaml.cs">
+      <DependentUpon>UpdateRepair.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\WarehouseDirectorPage.xaml.cs">
       <DependentUpon>WarehouseDirectorPage.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,8 @@
     <Compile Include="Pages\RepairsPage.xaml.cs">
       <DependentUpon>RepairsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Repairs\CurrentRepair.cs" />
+    <Compile Include="Repairs\RepairElement.cs" />
     <Compile Include="Shipments\ShipmentElement.cs" />
     <Compile Include="Shipments\ShipmentProductElement.cs" />
     <Compile Include="Shipments\ShipmentsElement.cs" />
@@ -198,6 +203,9 @@
     </Compile>
     <Compile Include="Pages\UpdateSupplierPage.xaml.cs">
       <DependentUpon>UpdateSupplierPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdateBuilding.xaml.cs">
+      <DependentUpon>UpdateBuilding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Warehouses\WarehouseElement.cs" />
     <Page Include="Pages\AddNewBuilding.xaml">
@@ -345,6 +353,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\UpdateRepair.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\UpdateProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -374,6 +386,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RepairsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdateBuilding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

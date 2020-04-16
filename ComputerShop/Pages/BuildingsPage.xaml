@@ -18,13 +18,27 @@
                     <GridViewColumn Header="Сотрудник" Width="180" DisplayMemberBinding="{Binding Employee}"/>
                     <GridViewColumn Header="Статус" Width="100" DisplayMemberBinding="{Binding Status}"/>
                     <GridViewColumn Header="Стоимость" Width="100" DisplayMemberBinding="{Binding Total}"/>
-                    <GridViewColumn Header="Дата" Width="150" DisplayMemberBinding="{Binding Date}"/>
-                    <GridViewColumn Header="Завершено" Width="150" DisplayMemberBinding="{Binding EndingDate}"/>
-                    <GridViewColumn Header="Гарантия" Width="100" DisplayMemberBinding="{Binding Guarantee}"/>
+                    <GridViewColumn Header="Дата" Width="130" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="Завершено" Width="130" DisplayMemberBinding="{Binding EndingDate}"/>
+                    <GridViewColumn Header="Гарантия" Width="130" DisplayMemberBinding="{Binding Guarantee}"/>
                     <GridViewColumn Header="Товары" Width="450" DisplayMemberBinding="{Binding Cart}"/>
                 </GridView>
             </ListView.View>
-        </ListView>
 
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseRightButtonDown" Handler="ListViewItem_PreviewMouseRightButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="CONTEXT">
+                    <MenuItem Header="Изменение" Click="MenuItem_Click"/>
+                </ContextMenu>
+
+            </ListView.ContextMenu>
+
+
+        </ListView>
     </Grid>
 </Page>
