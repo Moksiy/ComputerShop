@@ -21,6 +21,21 @@
                     <GridViewColumn Header="Бонусная программа" Width="200" DisplayMemberBinding="{Binding Bonus}"/>
                 </GridView>
             </ListView.View>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <EventSetter Event="UIElement.PreviewMouseRightButtonDown" Handler="ListViewItem_PreviewMouseRightButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="CONTEXT">
+                    <MenuItem Header="Редактировать" Click="MenuItem_Click"/>
+                </ContextMenu>
+
+            </ListView.ContextMenu>
+
+
         </ListView>
         <Button x:Name="AddClient" Background="LightGray" Content="Добавить клиента" HorizontalAlignment="Center" Margin="386,0,386,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="AddClient_Click" FontFamily="Yu Gothic UI Semibold"/>
 
