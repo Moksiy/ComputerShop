@@ -78,6 +78,10 @@ namespace ComputerShop
                         command.CommandText = "UPDATE Buildings SET EndingDate = GETDATE(), Guarantee = DATEADD(YEAR, 1, GETDATE()),BuildingStatus = 3 WHERE ID = " + CurrentBuilding.ID;
                         break;
 
+                    case "0":
+                        command.CommandText = "UPDATE Buildings SET EndingDate = GETDATE(), Guarantee = DATEADD(YEAR, 1, GETDATE()),BuildingStatus = 0 WHERE ID = " + CurrentBuilding.ID;
+                        break;
+
                     case "1":
                     case "2":
                         command.CommandText = "UPDATE Buildings SET BuildingStatus = "+status+" WHERE ID = " + CurrentBuilding.ID;
