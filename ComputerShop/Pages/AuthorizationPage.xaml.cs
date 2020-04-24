@@ -48,6 +48,7 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+
             //Возвращаем исходный контур
             LoginBox.BorderBrush = Brushes.SlateGray;
             PasswordBox.BorderBrush = Brushes.SlateGray;

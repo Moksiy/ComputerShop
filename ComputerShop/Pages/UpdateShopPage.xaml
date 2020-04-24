@@ -17,7 +17,7 @@
         <TextBox  x:Name="Phone" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="352,229,348,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Телефон" Foreground="LightGray" HorizontalAlignment="Center" Margin="352,195,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
         <Label Content="Директор" Foreground="LightGray" HorizontalAlignment="Center" Margin="352,257,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
-        <ComboBox x:Name="Director" Background="LightGray" HorizontalAlignment="Center" Margin="354,291,348,0" VerticalAlignment="Top" Width="298" Height="30"/>
+        <ComboBox x:Name="Director" FontSize="18" Background="LightGray" HorizontalAlignment="Center" Margin="354,291,348,0" VerticalAlignment="Top" Width="298" Height="30"/>
         <Button x:Name="Save" Background="LightGray" Content="Сохранить изменения" HorizontalAlignment="Center" Margin="411,0,411,309" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="Save_Click" FontFamily="Yu Gothic UI Semibold"/>
         <Label x:Name="Error" Content=" " HorizontalAlignment="Center" Margin="241,330,238,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="Red" Width="521" Height="35"/>
     </Grid>

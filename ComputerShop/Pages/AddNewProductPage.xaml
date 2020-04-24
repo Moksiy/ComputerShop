@@ -17,7 +17,7 @@
         <TextBox  x:Name="Artikul" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10"/>
         <Label Content="Артикул " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,226,212,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <Label Content="Категория " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,308,195,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <ComboBox x:Name="Categories"  Background="LightGray" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Width="298" Height="30">
+        <ComboBox x:Name="Categories" FontSize="18" Background="LightGray" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Width="298" Height="30">
 
         </ComboBox>
         <Image x:Name="ProductImage" Stretch="Fill" HorizontalAlignment="Center" Height="150" Margin="0,150,670,0" VerticalAlignment="Top" Width="180"/>

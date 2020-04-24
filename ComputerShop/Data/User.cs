@@ -12,5 +12,13 @@ namespace ComputerShop
         public static string Password { get; set; } = "";
         public static string RoleID { get; set; } = "";
         public static string ID { get; set; } = "";
+
+        public static void Clear()
+        {
+            Login = "";
+            Password = "";
+            RoleID = "";
+            ID = "";
+        }
     }
 }

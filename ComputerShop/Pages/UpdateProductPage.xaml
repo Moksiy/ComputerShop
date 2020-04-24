@@ -36,7 +36,7 @@
         <TextBox  x:Name="Artikul" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="312,260,338,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10"/>
         <Label Content="Артикул " Foreground="LightGray" HorizontalAlignment="Center" Margin="312,226,539,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="99"/>
         <Label Content="Категория " Foreground="LightGray" HorizontalAlignment="Center" Margin="312,306,530,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="108"/>
-        <ComboBox x:Name="Categories" Background="LightGray" HorizontalAlignment="Center" Margin="312,340,340,0" VerticalAlignment="Top" Width="298" Height="30"/>
+        <ComboBox x:Name="Categories" FontSize="18" Background="LightGray" HorizontalAlignment="Center" Margin="312,340,340,0" VerticalAlignment="Top" Width="298" Height="30"/>
         <Button x:Name="Save" Content="Сохранить" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="150" Height="32" FontSize="20" Click="Save_Click" FontFamily="Yu Gothic UI Semibold"/>
         <TextBox  x:Name="CName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="261,500,489,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
         <TextBox  x:Name="CText" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="490,500,260,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
