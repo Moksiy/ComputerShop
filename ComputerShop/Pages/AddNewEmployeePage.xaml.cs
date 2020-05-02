@@ -124,10 +124,31 @@ namespace ComputerShop
                 ComboBoxItem item = new ComboBoxItem();
                 item = (ComboBoxItem)Position.SelectedItem;
 
+                ComboBoxItem shop = new ComboBoxItem();
+                shop = (ComboBoxItem)Shop.SelectedItem;
+
                 //Запрос
-                command.CommandText = @"INSERT INTO Employee VALUES ((SELECT ISNULL(MAX(Employee.ID),0) FROM Employee) + 1,'"
-                + LastName.Text + "','" + FirstName.Text + "','" + Patronom.Text + "','" + Shop.SelectedIndex + "','" + item.Tag +
-                "',0)";
+                command.CommandText = @"EXEC AddNewEmployee @lastname, @firstname, @patronom, @shop, @position";
+
+                command.Parameters.Add("@lastname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@firstname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@patronom", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@shop", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@position", System.Data.SqlDbType.Int);
+
+                command.Parameters["@lastname"].Value = LastName.Text;
+
+                command.Parameters["@firstname"].Value = FirstName.Text;
+
+                command.Parameters["@patronom"].Value = Patronom.Text;
+
+                command.Parameters["@shop"].Value = shop.Tag;
+
+                command.Parameters["@position"].Value = item.Tag;
 
                 command.Connection = connection;
 

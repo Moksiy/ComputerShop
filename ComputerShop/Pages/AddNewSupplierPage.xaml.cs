@@ -77,8 +77,19 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "INSERT INTO Suppliers VALUES((SELECT ISNULL(MAX(Suppliers.ID)+1,0) FROM Suppliers),'"+
-                    Name.Text+"','"+Address.Text+"','"+Phone.Text+"')";
+                command.CommandText = @"EXEC AddNewSupplier @name, @address, @phone";
+
+                command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@address", System.Data.SqlDbType.VarChar, 100);
+
+                command.Parameters.Add("@phone", System.Data.SqlDbType.VarChar, 20);
+
+                command.Parameters["@name"].Value = Name.Text;
+
+                command.Parameters["@address"].Value = Address.Text;
+
+                command.Parameters["@phone"].Value = Phone.Text;
 
                 command.Connection = connection;
 
@@ -94,7 +105,7 @@ namespace ComputerShop
             {
                 //В любом случае закрываем подключение
                 connection.Close();
-                this.NavigationService.GoBack();
+                this.NavigationService.Navigate(new SuppliersPage());
             }
         }
     }

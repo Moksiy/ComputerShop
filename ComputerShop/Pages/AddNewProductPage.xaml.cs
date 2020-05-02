@@ -254,7 +254,31 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "INSERT INTO Products VALUES(" + id + ",'" + Name.Text + "','" + Artikul.Text + "','" + Manufacture.Text + "'," + Categories.SelectedIndex + "," + CostBox.Text + ")";
+                command.CommandText = @"EXEC AddNewProduct @id, @name, @artikul, @manufacture, @type, @cost ";
+
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 100);
+
+                command.Parameters.Add("@artikul", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@manufacture", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@type", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@cost", System.Data.SqlDbType.Money);
+
+                command.Parameters["@id"].Value = id;
+
+                command.Parameters["@name"].Value = Name.Text;
+
+                command.Parameters["@artikul"].Value = Artikul.Text;
+
+                command.Parameters["@manufacture"].Value = Manufacture.Text;
+
+                command.Parameters["@type"].Value = Categories.SelectedIndex;
+
+                command.Parameters["@cost"].Value = Convert.ToDecimal(CostBox.Text);
 
                 command.Connection = connection;
 

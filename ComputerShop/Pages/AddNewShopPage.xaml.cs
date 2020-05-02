@@ -133,8 +133,23 @@ namespace ComputerShop
                 ComboBoxItem item = (ComboBoxItem)Director.SelectedItem;
 
                 //Запрос
-                command.CommandText = "INSERT INTO Shops VALUES((SELECT ISNULL(MAX(Shops.ID)+1,0) FROM Shops), '"+
-                Name.Text+"','"+Address.Text+"','"+Phone.Text+"',"+item.Tag.ToString()+")";
+                command.CommandText = @"EXEC AddNewShop @name, @address, @phone, @director";
+
+                command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@address", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@phone", System.Data.SqlDbType.VarChar, 20);
+
+                command.Parameters.Add("@director", System.Data.SqlDbType.Int);
+
+                command.Parameters["@name"].Value = Name.Text;
+
+                command.Parameters["@address"].Value = Address.Text;
+
+                command.Parameters["@phone"].Value = Phone.Text;
+
+                command.Parameters["@director"].Value = Convert.ToInt32(item.Tag);
 
                 command.Connection = connection;
 

@@ -147,9 +147,31 @@ namespace ComputerShop
                 ComboBoxItem item = (ComboBoxItem)Bonus.SelectedItem;
 
                 //Запрос
-                command.CommandText = "INSERT INTO Bonuses VALUES((SELECT ISNULL(MAX(CardID) + 1, 0) FROM Clients), " + item.Tag + ") " +
-                                      "INSERT INTO Clients VALUES((SELECT ISNULL(MAX(ID) + 1, 0) FROM Clients), '" +
-                                      LastName.Text + "', '" + FirstName.Text + "', '" + Patronom.Text + "', '" + Email.Text + "', (SELECT ISNULL(MAX(CardID) + 1, 0) FROM Clients), '" + Phone.Text + "') ";
+                command.CommandText = @"EXEC AddNewClient @id, @lastname, @firstname, @patronom, @email, @phone";
+
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@lastname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@firstname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@patronom", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@phone", System.Data.SqlDbType.VarChar, 20);
+
+                command.Parameters["@id"].Value = Convert.ToInt32(item.Tag);
+
+                command.Parameters["@lastname"].Value = LastName.Text;
+
+                command.Parameters["@firstname"].Value = FirstName.Text;
+
+                command.Parameters["@patronom"].Value = Patronom.Text;
+
+                command.Parameters["@email"].Value = Email.Text;
+
+                command.Parameters["@phone"].Value = Phone.Text;
 
                 command.Connection = connection;
 
