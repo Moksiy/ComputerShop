@@ -151,9 +151,31 @@ namespace ComputerShop
                 ComboBoxItem item = (ComboBoxItem)Progr.SelectedItem;
 
                 //Запрос
-                command.CommandText = "UPDATE Clients SET LastName = '"+LastName.Text+"', [Name] = " +
-                    "'"+FirstName.Text+"', Patronymic = '"+Patronom.Text+"', Email = '"+Email.Text+"'  WHERE ID = " + CurrentClient.ID + " " +
-                    "UPDATE Bonuses SET ProgrammID = "+item.Tag+" WHERE CardID = "+ CurrentClient.ID;
+                command.CommandText = @"EXEC UpdateClient @lastname, @firstname, @patronom, @email, @id, @programmid";
+
+                command.Parameters.Add("@lastname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@firstname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@patronom", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@programmid", System.Data.SqlDbType.Int);
+
+                command.Parameters["@lastname"].Value = LastName.Text;
+
+                command.Parameters["@firstname"].Value = FirstName.Text;
+
+                command.Parameters["@patronom"].Value = Patronom.Text;
+
+                command.Parameters["@email"].Value = Email.Text;
+
+                command.Parameters["@id"].Value = Convert.ToInt32(CurrentClient.ID);
+
+                command.Parameters["@programmid"].Value = Convert.ToInt32(item.Tag);
 
                 command.Connection = connection;
 

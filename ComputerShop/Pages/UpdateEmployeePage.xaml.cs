@@ -285,7 +285,31 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "UPDATE Employee SET LastName = '"+LastName.Text+"', [Name] = '"+FirstName.Text+"', Patronymic = '"+Patronom.Text+"', ShopID = "+Shop.SelectedIndex+", PositionID = "+(++Position.SelectedIndex)+" WHERE ID = " + CurrentEmployee.ID;
+                command.CommandText = @"EXEC UpdateEmpl @lastname, @firstname, @patronom, @shop, @position, @id";
+
+                command.Parameters.Add("@lastname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@firstname", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@patronom", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@shop", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@position", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters["@lastname"].Value = LastName.Text;
+
+                command.Parameters["@firstname"].Value = FirstName.Text;
+
+                command.Parameters["@patronom"].Value = Patronom.Text;
+
+                command.Parameters["@shop"].Value = Convert.ToInt32(Shop.SelectedIndex);
+
+                command.Parameters["@position"].Value = Convert.ToInt32(Position.SelectedIndex);
+
+                command.Parameters["@id"].Value = Convert.ToInt32(CurrentEmployee.ID);
 
                 command.Connection = connection;
 

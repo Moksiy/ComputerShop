@@ -97,7 +97,27 @@ namespace ComputerShop
                 ComboBoxItem item = (ComboBoxItem)Director.SelectedItem;
 
                 //Запрос
-                command.CommandText = "UPDATE Shops SET ShopName = '"+Name.Text+"', Adress = '"+Address.Text+"', PhoneNumber = '"+Phone.Text+"', DirectorID = "+item.Tag+" WHERE ID = "+CurrentShop.ID;
+                command.CommandText = @"EXEC UpdateShop @name, @address, @phone, @director, @id";
+
+                command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@address", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@phone", System.Data.SqlDbType.VarChar, 20);
+
+                command.Parameters.Add("@director", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters["@name"].Value = Name.Text;
+
+                command.Parameters["@address"].Value = Address.Text;
+
+                command.Parameters["@phone"].Value = Phone.Text;
+
+                command.Parameters["@director"].Value = Convert.ToInt32(item.Tag);
+
+                command.Parameters["@id"].Value = Convert.ToInt32(CurrentShop.ID);
 
                 command.Connection = connection;
 

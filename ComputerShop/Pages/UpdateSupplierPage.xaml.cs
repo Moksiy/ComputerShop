@@ -120,8 +120,26 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "UPDATE Suppliers SET SupplierName = '"+Name.Text
-                +"', Adress = '"+Address.Text+"', PhoneNumber = '"+Phone.Text+"' WHERE ID = "+CurrentSupplier.ID;
+                command.CommandText = @"EXEC UpdateSupplier @name, @address, @phone, @id";
+
+                //"UPDATE Suppliers SET SupplierName = '"+Name.Text
+                //+"', Adress = '"+Address.Text+"', PhoneNumber = '"+Phone.Text+"' WHERE ID = "+CurrentSupplier.ID;
+
+                command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@address", System.Data.SqlDbType.VarChar, 100);
+
+                command.Parameters.Add("@phone", System.Data.SqlDbType.VarChar, 20);
+
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters["@name"].Value = Name.Text;
+
+                command.Parameters["@address"].Value = Address.Text;
+
+                command.Parameters["@phone"].Value = Phone.Text;
+
+                command.Parameters["@id"].Value = Convert.ToInt32(CurrentSupplier.ID);
 
                 command.Connection = connection;
 

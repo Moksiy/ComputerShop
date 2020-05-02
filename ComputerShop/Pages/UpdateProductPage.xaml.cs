@@ -93,9 +93,31 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 //Запрос
-                command.CommandText = "UPDATE Products SET ProductName = '"+Name.Text+"'," +
-                " Artikul = '"+Artikul.Text+"', Manufacturer = '"+Manufacture.Text+
-                "', TypeID = '"+Categories.SelectedIndex+"', Cost = "+CostBox.Text+" WHERE ID = "+CurrentProduct.ID;
+                command.CommandText = @"EXEC UpdateProducts @name, @artikul, @manufacturer, @type, @cost, @id";
+
+                command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 100);
+
+                command.Parameters.Add("@artikul", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@manufacturer", System.Data.SqlDbType.VarChar, 50);
+
+                command.Parameters.Add("@type", System.Data.SqlDbType.Int);
+
+                command.Parameters.Add("@cost", System.Data.SqlDbType.Money);
+
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+
+                command.Parameters["@name"].Value = Name.Text;
+
+                command.Parameters["@artikul"].Value = Artikul.Text;
+
+                command.Parameters["@manufacturer"].Value = Manufacture.Text;
+
+                command.Parameters["@type"].Value = Convert.ToInt32(Categories.SelectedIndex);
+
+                command.Parameters["@cost"].Value = Convert.ToDecimal(CostBox.Text);
+
+                command.Parameters["@id"].Value = Convert.ToInt32(CurrentProduct.ID);
 
                 command.Connection = connection;
 
