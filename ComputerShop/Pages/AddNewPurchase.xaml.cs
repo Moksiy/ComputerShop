@@ -144,6 +144,7 @@ namespace ComputerShop
                 Cost += Convert.ToInt32(Quan.Text) * GetPrice(Convert.ToInt32(comboitem.Tag));
                 Products.Text = "";
                 Quan.Text = "";
+                Total.Content = Convert.ToDouble(Cost).ToString() + "₽";
             }
         }
 

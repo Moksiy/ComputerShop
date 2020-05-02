@@ -11,7 +11,7 @@
     <Grid>
         <TextBox  x:Name="Search" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="325,60,325,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Номер телефона клиента" HorizontalAlignment="Center" Margin="359,26,360,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray" Width="231"/>
-        <ComboBox x:Name="Clients"  Background="LightGray" HorizontalAlignment="Center" Margin="326,125,326,0" VerticalAlignment="Top" Width="298" Height="30"/>
+        <ComboBox x:Name="Clients"  FontSize="18" Background="LightGray" HorizontalAlignment="Center" Margin="326,125,326,0" VerticalAlignment="Top" Width="298" Height="30"/>
         <Button x:Name="SearchButton" Content="🔍" HorizontalAlignment="Center" Margin="643,60,273,0" VerticalAlignment="Top" Width="34" Height="28" FontSize="15" Click="Search_Click" FontFamily="Yu Gothic UI Semibold"/>
         <ListView x:Name="ShipmentProducts" Background="LightGray" Foreground="Black" HorizontalAlignment="Center" Margin="125,160,125,0" FontSize="18" VerticalAlignment="Top" Width="700" Height="300">
             <ListView.View>
@@ -31,5 +31,7 @@
         <Label Content="" x:Name="ErrorClient" Foreground="Red" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" HorizontalContentAlignment="Center"/>
         <Label Content="" x:Name="ErrorProducts" Foreground="Red" HorizontalAlignment="Center" Margin="389,465,551,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" HorizontalContentAlignment="Center"/>
         <Button x:Name="AddShipment" Background="LightGray" Content="Добавить покупку" HorizontalAlignment="Center" Margin="411,0,361,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="AddShipment_Click" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content="Итого:" Foreground="LightGray" HorizontalAlignment="Center" Margin="664,556,184,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
+        <Label x:Name="Total" Content="" Foreground="LightGray" HorizontalAlignment="Center" Margin="775,556,73,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
     </Grid>
 </Page>
