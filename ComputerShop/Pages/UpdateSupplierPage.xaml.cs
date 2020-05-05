@@ -122,9 +122,6 @@ namespace ComputerShop
                 //Запрос
                 command.CommandText = @"EXEC UpdateSupplier @name, @address, @phone, @id";
 
-                //"UPDATE Suppliers SET SupplierName = '"+Name.Text
-                //+"', Adress = '"+Address.Text+"', PhoneNumber = '"+Phone.Text+"' WHERE ID = "+CurrentSupplier.ID;
-
                 command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 50);
 
                 command.Parameters.Add("@address", System.Data.SqlDbType.VarChar, 100);
