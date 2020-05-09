@@ -122,7 +122,7 @@ namespace ComputerShop
                 SqlCommand command = new SqlCommand();
 
                 ComboBoxItem item = new ComboBoxItem();
-                item = (ComboBoxItem)Position.SelectedItem;
+                item = (ComboBoxItem)Position.Tag;
 
                 ComboBoxItem shop = new ComboBoxItem();
                 shop = (ComboBoxItem)Shop.SelectedItem;
@@ -254,7 +254,10 @@ namespace ComputerShop
 
                 while (dataReader.Read())
                 {
-                    Position.Items.Add(new ComboBoxItem { Tag = dataReader[0], Content = dataReader[1] });
+                    ComboBoxItem item = new ComboBoxItem();
+                    item.Tag = dataReader[0].ToString();
+                    item.Content = dataReader[1].ToString();
+                    Position.Items.Add(item);
                 }
             }
             catch (SqlException ex)

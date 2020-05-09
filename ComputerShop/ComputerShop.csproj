@@ -57,6 +57,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Buildings\CurrentBuilding.cs" />
+    <Compile Include="Cheque\ChequeBuilder.cs" />
+    <Compile Include="Cheque\CurrentCheque.cs" />
+    <Compile Include="Cheque\CurrentDocument.cs" />
+    <Compile Include="Cheque\ProductItem.cs" />
     <Compile Include="Clients\CurrentClient.cs" />
     <Compile Include="Pages\AddNewRepair.xaml.cs">
       <DependentUpon>AddNewRepair.xaml</DependentUpon>
@@ -75,6 +79,9 @@
     <Compile Include="Clients\ClientElement.cs" />
     <Compile Include="Pages\AddNewClientPage.xaml.cs">
       <DependentUpon>AddNewClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChequePage.xaml.cs">
+      <DependentUpon>ChequePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ClientsPage.xaml.cs">
       <DependentUpon>ClientsPage.xaml</DependentUpon>
@@ -147,9 +154,6 @@
     </Compile>
     <Compile Include="Authorization\Account.cs" />
     <Compile Include="Images\ImageElement.cs" />
-    <Compile Include="Pages\ConsultantPage.xaml.cs">
-      <DependentUpon>ConsultantPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
@@ -179,6 +183,7 @@
       <DependentUpon>PurchasesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Purchases\Costs.cs" />
+    <Compile Include="Purchases\CurrentPurchase.cs" />
     <Compile Include="Purchases\ProductListElement.cs" />
     <Compile Include="Purchases\PurchasesElement.cs" />
     <Compile Include="Pages\RepairsPage.xaml.cs">
@@ -232,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddNewClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChequePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,10 +325,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddNewProductPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ConsultantPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

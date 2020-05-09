@@ -342,7 +342,92 @@ namespace ComputerShop
             {
                 ShipmentsList.list.Clear();
                 connection.Close();
-                this.NavigationService.Navigate(new LogoPage());
+                GetNewRepair();
+            }
+        }
+
+        public async void GetNewRepair()
+        {
+            CurrentCheque.Cart.Clear();
+
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "DECLARE @purch int SET @purch = (SELECT MAX(ID) FROM Repairs) EXEC GetRepairs @id = @purch";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    CurrentCheque.Type = 1;
+                    CurrentCheque.ID = dataReader[0].ToString();
+                    CurrentCheque.Client = dataReader[1].ToString() + " " + dataReader[2].ToString()[0] + ". " + dataReader[3].ToString()[0] + ".";
+                    CurrentCheque.Employee = dataReader[4].ToString() + " " + dataReader[5].ToString()[0] + ". " + dataReader[6].ToString()[0] + ".";
+                    CurrentCheque.Date = dataReader[7].ToString();
+                    CurrentCheque.Cost = dataReader[8].ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+                GetCarts();
+            }
+        }
+
+        public async void GetCarts()
+        {
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection.ConnectionString = MainWindow.ConnectionSrting;
+
+                //Открываем подключение
+                await connection.OpenAsync();
+
+                SqlCommand command = new SqlCommand();
+
+                //Запрос
+                command.CommandText = "DECLARE @purch int SET @purch = (SELECT MAX(ID) FROM Repairs) EXEC GetRepairCart @id = @purch";
+
+                command.Connection = connection;
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    CurrentCheque.Cart.Add(new ProductItem(dataReader[0].ToString(), dataReader[1].ToString(), dataReader[2].ToString()));
+                }
+            }
+            catch (SqlException ex)
+            {
+                connection.Close();
+                SynchronizationErrors.New(ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //В любом случае закрываем подключение
+                connection.Close();
+                this.NavigationService.Navigate(new ChequePage());
             }
         }
     }

@@ -284,8 +284,11 @@ namespace ComputerShop
 
                 SqlCommand command = new SqlCommand();
 
+                ComboBoxItem item = new ComboBoxItem();
+                item = (ComboBoxItem)Position.SelectedItem;                
+
                 //Запрос
-                command.CommandText = @"EXEC UpdateEmpl @lastname, @firstname, @patronom, @shop, @position, @id";
+                command.CommandText = @"EXEC UpdateEmpl @lastname, @firstname, @patronom, @shop, @position, @id UPDATE Shops SET DirectorID = @id";
 
                 command.Parameters.Add("@lastname", System.Data.SqlDbType.VarChar, 50);
 
@@ -307,7 +310,7 @@ namespace ComputerShop
 
                 command.Parameters["@shop"].Value = Convert.ToInt32(Shop.SelectedIndex);
 
-                command.Parameters["@position"].Value = Convert.ToInt32(Position.SelectedIndex);
+                command.Parameters["@position"].Value = Convert.ToInt32(item.Tag);
 
                 command.Parameters["@id"].Value = Convert.ToInt32(CurrentEmployee.ID);
 

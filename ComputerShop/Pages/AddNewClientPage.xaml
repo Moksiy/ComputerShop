@@ -10,15 +10,15 @@
 
     <Grid>
         <Label Content="Фамилия " Foreground="LightGray" HorizontalAlignment="Center" Margin="350,66,498,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="102"/>
-        <TextBox  x:Name="LastName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,100,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <TextBox  x:Name="FirstName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,180,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox  MaxLength="49" x:Name="LastName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,100,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox  MaxLength="49" x:Name="FirstName" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,180,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Имя " Foreground="LightGray" HorizontalAlignment="Center" Margin="350,147,549,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Patronom" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,260,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="49" x:Name="Patronom" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,260,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Отчество " Foreground="LightGray" HorizontalAlignment="Center" Margin="350,226,506,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="94"/>
         <Label Content="Email" Foreground="LightGray" HorizontalAlignment="Center" Margin="351,306,455,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="144"/>
-        <TextBox  x:Name="Email" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,340,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="49" x:Name="Email" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,340,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Номер телефона" Foreground="LightGray" HorizontalAlignment="Center" Margin="351,382,441,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="158"/>
-        <TextBox  x:Name="Phone" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,416,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="19" x:Name="Phone" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,416,300,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <ComboBox x:Name="Bonus" FontSize="18" Background="LightGray" HorizontalAlignment="Center" Margin="351,499,301,0" VerticalAlignment="Top" Width="298" Height="30"/>
         <Label Content="Бонусная программа" Foreground="LightGray" HorizontalAlignment="Center" Margin="351,465,391,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="208"/>
         <Button x:Name="AddClient" Background="LightGray" Content="Добавить клиента" HorizontalAlignment="Center" Margin="411,0,361,43" VerticalAlignment="Bottom" Width="178" Height="26" FontSize="15" Click="AddClient_Click" FontFamily="Yu Gothic UI Semibold"/>

@@ -33,6 +33,7 @@
             <ListView.ContextMenu>
                 <ContextMenu x:Name="CONTEXT">
                     <MenuItem Header="Изменение" Click="MenuItem_Click"/>
+                    <MenuItem Header="Cформировать чек" Click="MenuItem_Click_1"/>
                 </ContextMenu>
 
             </ListView.ContextMenu>
