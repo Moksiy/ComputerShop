@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Windows.Markup;
+using System.Windows.Forms;
 
 namespace ComputerShop
 {
@@ -45,7 +48,7 @@ namespace ComputerShop
             FlowDocument d = new FlowDocument();
             Document = d;
 
-            PrintDialog printDialog = new PrintDialog();
+            System.Windows.Controls.PrintDialog printDialog = new System.Windows.Controls.PrintDialog();
             if (printDialog.ShowDialog() == true)
             {                
                 printDialog.PrintDocument(((IDocumentPaginatorSource)CurrentDocument.Document).DocumentPaginator, "Cheque");
@@ -59,6 +62,20 @@ namespace ComputerShop
         /// <param name="e"></param>
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.AddExtension = true;
+            saveDialog.Filter = "(*.txt)|*.txt|Все файлы (*.*)|*.* ";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream fs = new FileStream(saveDialog.FileName, FileMode.OpenOrCreate, FileAccess.Write))
+                {
+                    FlowDocument flow = new FlowDocument();
+                    flow = ChequeBuilder.Build();
+                    TextRange textRange = new TextRange(flow.ContentStart, flow.ContentEnd);
+                    textRange.Save(fs, System.Windows.DataFormats.Text);
+                }
+            }            
 
         }
 
