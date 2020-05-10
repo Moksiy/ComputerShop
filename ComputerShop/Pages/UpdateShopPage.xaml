@@ -10,11 +10,11 @@
 
     <Grid>
         <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Back_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Name" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,100,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="49" x:Name="Name" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="350,100,350,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Название " Foreground="LightGray" HorizontalAlignment="Center" Margin="352,66,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Address" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="352,167,348,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="49" x:Name="Address" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="352,167,348,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Адрес " Foreground="LightGray" HorizontalAlignment="Center" Margin="352.2,133,582.2,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Phone" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="352,229,348,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="19" x:Name="Phone" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="352,229,348,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Телефон" Foreground="LightGray" HorizontalAlignment="Center" Margin="352,195,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
         <Label Content="Директор" Foreground="LightGray" HorizontalAlignment="Center" Margin="352,257,552,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="96"/>
         <ComboBox x:Name="Director" FontSize="18" Background="LightGray" HorizontalAlignment="Center" Margin="354,291,348,0" VerticalAlignment="Top" Width="298" Height="30"/>

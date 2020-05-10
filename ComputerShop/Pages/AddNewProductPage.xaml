@@ -10,8 +10,8 @@
 
     <Grid>
         <Button x:Name="Back" Content="◀️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="24" FontSize="15" Click="Logout_Click" FontFamily="Yu Gothic UI Semibold"/>
-        <TextBox  x:Name="Name" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
-        <TextBox  x:Name="Manufacture" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="325,180,325,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="99" x:Name="Name" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
+        <TextBox MaxLength="49" x:Name="Manufacture" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="325,180,325,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20"/>
         <Label Content="Название " HorizontalAlignment="Center" Margin="0,66,200,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold" Foreground="LightGray"/>
         <Label Content="Производитель " Foreground="LightGray" HorizontalAlignment="Center" Margin="0,145,150,0" VerticalAlignment="Top" FontSize="18" FontFamily="Yu Gothic UI Semibold"/>
         <TextBox  x:Name="Artikul" Background="LightGray" HorizontalAlignment="Center" Height="28" Margin="0,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" FontSize="20" MaxLength="10"/>
