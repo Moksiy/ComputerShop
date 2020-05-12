@@ -87,6 +87,24 @@ namespace ComputerShop
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             ((MainWindow)System.Windows.Application.Current.MainWindow).Center.Navigate(new LogoPage());
+            switch(User.RoleID)
+            {
+                case "1":
+                    ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new GeneralDirectorBar());
+                    break;
+
+                case "2":
+                    ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new DirectorBar());
+                    break;
+
+                case "4":
+                    ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new RepairmanBar());
+                    break;
+
+                case "5":
+                    ((MainWindow)System.Windows.Application.Current.MainWindow).LeftBar.Navigate(new ConsultantBar());
+                    break;
+            }
         }
     }
 }
